@@ -1,5 +1,6 @@
 import type { TutorialContent } from '@mageknight/content';
 import type { GameView, LegalIntent } from '@mageknight/engine';
+import { CardArt } from './game-icons';
 
 type HandProps = {
   view: GameView;
@@ -18,6 +19,7 @@ export function Hand({ view, content, onIntent }: HandProps) {
           return (
             <article className="card" key={instance.id} data-card-id={instance.id} data-definition-id={instance.definitionId}>
               <strong>{card?.name ?? instance.definitionId}</strong>
+              {card ? <CardArt card={card} /> : null}
               <small>{card?.kind === 'wound' ? '不能打出' : `${card?.basic?.amount ?? '-'} / ${card?.strong?.amount ?? '-'}`}</small>
               {intents.map((intent) => <button key={intent.id} type="button" onClick={() => onIntent(intent)}>{intent.label.replace(`${card?.name}：`, '')}</button>)}
             </article>

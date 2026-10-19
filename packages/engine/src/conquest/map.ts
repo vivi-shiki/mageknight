@@ -159,9 +159,7 @@ function wedgeSlots(layer: number, kind: ExplorableTileKind): number[] {
   return [0, layer, ...symmetricSlots(1, layer - 1)];
 }
 
-export function nextTileCenter(state: ConquestState, kind = tileKindToExplore(state)): Coord {
-  if (!kind) throw new Error('No map tile remains to explore.');
-  const occupied = new Set(state.placedTiles.map((tile) => coordKey(tile.center)));
+function nextWedgeCenter(occupied: Set<string>, kind: ExplorableTileKind): Coord {
   for (let layer = 1; layer <= 24; layer += 1) {
     for (const slot of wedgeSlots(layer, kind)) {
       const candidate = wedgeSlot(layer, slot);
@@ -169,6 +167,24 @@ export function nextTileCenter(state: ConquestState, kind = tileKindToExplore(st
     }
   }
   throw new Error('No wedge map slot remains for the next tile.');
+}
+
+export function plannedWedgeCenters(countrysideCount: number, coreCount: number): Coord[] {
+  const centers: Coord[] = [{ q: 0, r: 0 }];
+  const occupied = new Set(['0,0']);
+  for (const [kind, count] of [['countryside', countrysideCount], ['core', coreCount]] as const) {
+    for (let index = 0; index < count; index += 1) {
+      const center = nextWedgeCenter(occupied, kind);
+      centers.push(center);
+      occupied.add(coordKey(center));
+    }
+  }
+  return centers;
+}
+
+export function nextTileCenter(state: ConquestState, kind = tileKindToExplore(state)): Coord {
+  if (!kind) throw new Error('No map tile remains to explore.');
+  return nextWedgeCenter(new Set(state.placedTiles.map((tile) => coordKey(tile.center))), kind);
 }
 
 export function frontierCoords(state: ConquestState): Coord[] {

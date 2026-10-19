@@ -4,7 +4,7 @@ export { executeConquestIntent, getConquestLegalIntents, projectConquestView, co
 export { assertConquestInvariants, commandCapacity, conquestTerrainCost, createRuleRuntime, reputationModifier } from './state';
 export { calculateConquestScore, resolveScenario } from './scenario';
 export { allowedMarkets, marketCost } from './market';
-export { explorationDistance, frontierCoord, frontierCoords, hasWall, nextTileCenter, placeTile, wallKey } from './map';
+export { explorationDistance, frontierCoord, frontierCoords, hasWall, nextTileCenter, plannedWedgeCenters, placeTile, wallKey } from './map';
 export { runVolkareTurn } from './turn';
 export { chooseConquestSolverIntent, runConquestSolver, runConquestSolverBatch, runPassiveConquestBaseline } from './solver';
 export type { ConquestSolverBatch, ConquestSolverCoverage, ConquestSolverOptions, ConquestSolverRun, ConquestSolverStep } from './solver';

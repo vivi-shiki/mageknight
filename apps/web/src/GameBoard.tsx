@@ -1,5 +1,6 @@
 import { axialToPixel, coordKey } from '@mageknight/engine';
 import type { Coord, GameView, LegalIntent, MapSpaceState } from '@mageknight/engine';
+import { TerrainArt } from './game-icons';
 
 type GameBoardProps = {
   view: GameView;
@@ -41,11 +42,17 @@ export function GameBoard({ view, onIntent, onInvalidMove }: GameBoardProps) {
       .map((intent) => [coordKey(intent.command.type === 'MOVE_HERO' ? intent.command.to : { q: 0, r: 0 }), intent]),
   );
   const size = 48;
+  const centers = Object.values(view.map).map((space) => axialToPixel(space.coord, size));
+  const padding = size * 1.2;
+  const minX = Math.min(...centers.map((point) => point.x)) - padding;
+  const maxX = Math.max(...centers.map((point) => point.x)) + padding;
+  const minY = Math.min(...centers.map((point) => point.y)) - padding;
+  const maxY = Math.max(...centers.map((point) => point.y)) + padding;
   return (
     <section aria-labelledby="map-title">
       <h2 id="map-title">地图</h2>
-      <svg className="map" viewBox="0 0 680 390" role="img" aria-label="六边形探索地图">
-        <g transform="translate(290 195)">
+      <svg className="map" viewBox={`${minX} ${minY} ${maxX - minX} ${maxY - minY}`} role="img" aria-label="六边形探索地图">
+        <g>
           {Object.values(view.map).map((space) => {
             const key = coordKey(space.coord);
             const point = axialToPixel(space.coord, size);
@@ -67,10 +74,11 @@ export function GameBoard({ view, onIntent, onInvalidMove }: GameBoardProps) {
                   }
                 }}
               >
-                <polygon points={polygonPoints(size - 2)} fill={TERRAIN_COLORS[space.terrain]} stroke={moveIntent ? '#1b6b35' : '#555'} strokeWidth={moveIntent ? 4 : 1.5} />
-                <text textAnchor="middle" y="-5">{TERRAIN_LABELS[space.terrain]}</text>
-                <text textAnchor="middle" y="13" className="map-detail">{space.site === 'village' ? '村庄' : space.enemyIds.length > 0 ? '敌人' : key}</text>
-                {isHero ? <text textAnchor="middle" y="32" className="hero-marker">Tovak</text> : null}
+                <polygon points={polygonPoints(size)} fill={TERRAIN_COLORS[space.terrain]} stroke={moveIntent ? '#1b6b35' : '#555'} strokeWidth={moveIntent ? 4 : 1.5} />
+                <TerrainArt terrain={space.terrain} />
+                <text textAnchor="middle" y="12">{TERRAIN_LABELS[space.terrain]}</text>
+                <text textAnchor="middle" y="25" className="map-detail">{space.site === 'village' ? '村庄' : space.enemyIds.length > 0 ? '敌人' : key}</text>
+                {isHero ? <text textAnchor="middle" y="-35" className="hero-marker">Tovak</text> : null}
               </g>
             );
           })}

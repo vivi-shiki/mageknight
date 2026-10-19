@@ -7,6 +7,7 @@ import {
   executeConquestIntent,
   frontierCoords,
   getConquestLegalIntents,
+  plannedWedgeCenters,
   projectConquestView,
   reputationModifier,
 } from '../index';
@@ -70,6 +71,7 @@ describe('v0.5 conquest core', () => {
       '8,-3', '7,0',
       '11,-5', '9,1',
     ]);
+      expect(plannedWedgeCenters(7, 4)).toEqual(state.placedTiles.map((tile) => tile.center));
     for (const tile of state.placedTiles.filter((placed) => conquestContent.tiles[placed.definitionId]?.kind === 'core')) {
       expect(['8,-3', '7,0', '11,-5', '9,1']).toContain(`${tile.center.q},${tile.center.r}`);
     }

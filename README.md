@@ -4,6 +4,8 @@
 
 > 本项目为个人学习与爱好作品，与 WizKids 及原版桌游权利方无关。卡牌和版图使用可替换的占位表现，仓库中不包含任何官方图片素材。
 
+地图和卡牌图标来自 [Game-icons.net](https://game-icons.net/)，作者包括 Lorc、Delapouite、sbed 和 Willdabeast，依照 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) 使用。图标副本在 `apps/web/public/game-icons/`，移除了原图背景并按游戏配色显示。
+
 ## 功能概览
 
 - **教学关卡**：固定剧本的入门切片。

@@ -18,7 +18,12 @@ test.afterEach(async ({ page }) => {
 
 test('E2E-520 configures a seeded hero and selects tactics', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Mage Knight Web v0.8.0' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /教学模式/ })).toHaveCount(0);
+  await expect(page.locator('.unrevealed-tile')).toHaveCount(2);
   await expect(page.getByRole('img', { name: 'v0.8.0 征服地图' }).getByRole('button')).toHaveCount(7);
+  const mapIcon = await page.locator('.conquest-map image').first().getAttribute('href');
+  expect(mapIcon).toMatch(/^\/game-icons\/.+\.svg$/);
+  expect((await page.request.get(mapIcon!)).ok()).toBe(true);
   await page.getByLabel('Seed').fill('e2e-v03');
   await page.getByLabel('英雄').selectOption('core.hero.arythea');
   await page.getByLabel('难度').selectOption('veteran');
@@ -26,6 +31,7 @@ test('E2E-520 configures a seeded hero and selects tactics', async ({ page }) =>
   await expect(page.getByText(/难度 veteran，城市等级 8\/11/)).toBeVisible();
   await expect(page.getByText(/Arythea：护甲/)).toBeVisible();
   await page.getByRole('button', { name: /1 · 先发制人/ }).click();
+  await expect(page.locator('.card-art-icon').first()).toHaveAttribute('style', /mask-image: url\("?\/game-icons\/.+\.svg"?\)/);
   await expect(page.getByRole('button', { name: '结束移动' })).toBeVisible();
   await expect(page.getByText(/Dummy：牌库 16/)).toBeVisible();
 });

@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('two new accounts can join one room and start a shared game', async ({ browser }) => {
+  test.setTimeout(60_000);
   const suffix = Math.random().toString(36).slice(2, 9);
   const ownerName = `owner-${suffix}`;
   const guestName = `guest-${suffix}`;

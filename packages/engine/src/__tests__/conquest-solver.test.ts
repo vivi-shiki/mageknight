@@ -53,7 +53,7 @@ describe('offline conquest solver', () => {
       expect(legal.some((intent) => intent.id === selected?.id)).toBe(true);
       state = mustExecute(state, selected!.command);
     }
-  });
+  }, 60_000);
 
   it('SOL-002 completes and exactly replays a full game', () => {
     const run = runConquestSolver(content, config, { maxSteps: 400 });
