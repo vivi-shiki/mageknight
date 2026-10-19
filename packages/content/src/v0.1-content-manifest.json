@@ -1,0 +1,94 @@
+{
+  "id": "v0.1.content.manifest",
+  "version": "0.1.0",
+  "requires": [],
+  "conflicts": [],
+  "hero": { "id": "core.hero.tovak", "name": "Tovak", "source": "Mage Knight Board Game base rules" },
+  "scenario": {
+    "id": "core.scenario.first-reconnaissance-lite",
+    "name": "First Reconnaissance Lite",
+    "source": "v0.1 frozen tutorial adaptation",
+    "roundLimit": 4,
+    "win": "Reveal the exploration tile and defeat two enemies.",
+    "loss": "Begin a fifth round before satisfying the win condition.",
+    "tutorialSteps": ["move-and-explore", "village-and-recruit", "orc-combat-and-level-up", "keep-combat-and-win"]
+  },
+  "cards": [
+    { "id": "core.card.rage-1", "name": "狂怒", "color": "red", "kind": "basic", "source": "base", "basic": { "resource": "attack", "amount": 2 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.rage" },
+    { "id": "core.card.rage-2", "name": "狂怒", "color": "red", "kind": "basic", "source": "base", "basic": { "resource": "attack", "amount": 2 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.rage" },
+    { "id": "core.card.determination-1", "name": "决意", "color": "blue", "kind": "basic", "source": "base", "basic": { "resource": "block", "amount": 2 }, "strong": { "resource": "block", "amount": 5 }, "assetAlias": "card.determination" },
+    { "id": "core.card.determination-2", "name": "决意", "color": "blue", "kind": "basic", "source": "base", "basic": { "resource": "block", "amount": 2 }, "strong": { "resource": "block", "amount": 5 }, "assetAlias": "card.determination" },
+    { "id": "core.card.march-1", "name": "行军", "color": "green", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "move", "amount": 4 }, "assetAlias": "card.march" },
+    { "id": "core.card.march-2", "name": "行军", "color": "green", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "move", "amount": 4 }, "assetAlias": "card.march" },
+    { "id": "core.card.stamina-1", "name": "耐力", "color": "blue", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "move", "amount": 4 }, "assetAlias": "card.stamina" },
+    { "id": "core.card.stamina-2", "name": "耐力", "color": "blue", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "move", "amount": 4 }, "assetAlias": "card.stamina" },
+    { "id": "core.card.swiftness-1", "name": "迅捷", "color": "white", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "attack", "amount": 3, "attackKind": "ranged" }, "assetAlias": "card.swiftness" },
+    { "id": "core.card.swiftness-2", "name": "迅捷", "color": "white", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "attack", "amount": 3, "attackKind": "ranged" }, "assetAlias": "card.swiftness" },
+    { "id": "core.card.promise", "name": "承诺", "color": "white", "kind": "basic", "source": "base", "basic": { "resource": "influence", "amount": 2 }, "strong": { "resource": "influence", "amount": 4 }, "assetAlias": "card.promise" },
+    { "id": "core.card.threaten", "name": "威吓", "color": "red", "kind": "basic", "source": "base", "basic": { "resource": "influence", "amount": 2 }, "strong": { "resource": "influence", "amount": 5 }, "assetAlias": "card.threaten" },
+    { "id": "core.card.tranquility", "name": "宁静", "color": "green", "kind": "basic", "source": "base", "basic": { "resource": "heal", "amount": 1 }, "strong": { "resource": "heal", "amount": 2 }, "assetAlias": "card.tranquility" },
+    { "id": "core.card.crystallize", "name": "结晶", "color": "blue", "kind": "basic", "source": "base", "basic": { "resource": "block", "amount": 2 }, "strong": { "resource": "block", "amount": 4, "element": "ice" }, "assetAlias": "card.crystallize" },
+    { "id": "core.card.mana-draw", "name": "法力汲取", "color": "white", "kind": "basic", "source": "base", "basic": { "resource": "influence", "amount": 1 }, "strong": { "resource": "attack", "amount": 3, "element": "physical" }, "assetAlias": "card.mana-draw" },
+    { "id": "core.card.concentration", "name": "专注", "color": "green", "kind": "basic", "source": "base", "basic": { "resource": "move", "amount": 1 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.concentration" },
+    { "id": "core.card.training", "name": "战技训练", "color": "white", "kind": "advanced", "source": "v0.1 reward", "basic": { "resource": "attack", "amount": 3 }, "strong": { "resource": "block", "amount": 6 }, "assetAlias": "card.training" },
+    { "id": "core.card.fireball", "name": "火球术", "color": "red", "kind": "spell", "source": "v0.1 reward", "basic": { "resource": "attack", "amount": 5, "attackKind": "ranged", "element": "fire" }, "strong": { "resource": "attack", "amount": 8, "attackKind": "siege", "element": "fire" }, "assetAlias": "card.fireball" },
+    { "id": "core.card.wound", "name": "伤牌", "color": "red", "kind": "wound", "source": "base", "assetAlias": "card.wound" }
+  ],
+  "basicDeck": [
+    "core.card.march-1",
+    "core.card.march-2",
+    "core.card.promise",
+    "core.card.rage-1",
+    "core.card.determination-1",
+    "core.card.stamina-1",
+    "core.card.swiftness-1",
+    "core.card.rage-2",
+    "core.card.threaten",
+    "core.card.stamina-2",
+    "core.card.determination-2",
+    "core.card.swiftness-2",
+    "core.card.tranquility",
+    "core.card.crystallize",
+    "core.card.mana-draw",
+    "core.card.concentration"
+  ],
+  "enemies": [
+    { "id": "core.enemy.orc-prowlers", "name": "兽人游荡者", "source": "base", "armor": 3, "attack": [2], "attackElement": "physical", "resistances": [], "abilities": ["swift"], "fame": 3, "assetAlias": "enemy.orc-prowlers" },
+    { "id": "core.enemy.keep-guards", "name": "要塞守卫", "source": "v0.1 scenario", "armor": 4, "attack": [4], "attackElement": "fire", "resistances": ["fire"], "abilities": ["fortified", "brutal"], "fame": 3, "assetAlias": "enemy.keep-guards" },
+    { "id": "core.enemy.ice-mages", "name": "冰霜法师", "source": "v0.1 combat fixture", "armor": 4, "attack": [2, 2], "attackElement": "ice", "resistances": ["ice"], "abilities": ["multi-attack"], "fame": 4, "assetAlias": "enemy.ice-mages" }
+  ],
+  "units": [{ "id": "core.unit.peasants", "name": "农民", "source": "base", "level": 1, "armor": 3, "influenceCost": 3, "ability": { "resource": "attack", "amount": 2 }, "assetAlias": "unit.peasants" }],
+  "sites": [{ "id": "core.site.village", "name": "Village", "source": "base" }],
+  "mapTiles": [
+    {
+      "id": "core.tile.v0.1-start",
+      "name": "Tutorial start tile",
+      "source": "v0.1 frozen setup",
+      "spaces": [
+        { "q": 0, "r": 0, "terrain": "plains" },
+        { "q": 1, "r": 0, "terrain": "plains", "site": "core.site.village" },
+        { "q": 1, "r": -1, "terrain": "hills", "enemyId": "core.enemy.orc-prowlers" },
+        { "q": 0, "r": -1, "terrain": "forest" },
+        { "q": -1, "r": 0, "terrain": "plains" },
+        { "q": -1, "r": 1, "terrain": "hills" },
+        { "q": 0, "r": 1, "terrain": "forest" }
+      ]
+    },
+    {
+      "id": "core.tile.v0.1-exploration",
+      "name": "Tutorial exploration tile",
+      "source": "v0.1 frozen setup",
+      "spaces": [
+        { "q": 2, "r": 0, "terrain": "plains" },
+        { "q": 2, "r": -1, "terrain": "hills", "enemyId": "core.enemy.keep-guards" },
+        { "q": 3, "r": -1, "terrain": "desert" },
+        { "q": 3, "r": -2, "terrain": "forest" },
+        { "q": 4, "r": -2, "terrain": "mountain" },
+        { "q": 4, "r": -1, "terrain": "wasteland" },
+        { "q": 3, "r": 0, "terrain": "lake" }
+      ]
+    }
+  ],
+  "rewards": ["core.card.training", "core.card.fireball"]
+}
+

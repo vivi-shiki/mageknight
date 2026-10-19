@@ -1,0 +1,282 @@
+{
+  "id": "lost-legion.official-v0.6",
+  "version": "0.6.0",
+  "requires": ["core.rules-fidelity-v0.5"],
+  "conflicts": [],
+  "hero": {
+    "id": "lost-legion.hero.wolfhawk",
+    "name": "Wolfhawk",
+    "armor": 2,
+    "handLimit": 5,
+    "commandSlots": 1,
+    "basicDeck": [
+      "lost-legion.card.hero.tirelessness", "lost-legion.card.hero.swift-reflexes",
+      "core.card.march-1", "core.card.march-2", "core.card.tranquility", "core.card.hero.improvisation",
+      "core.card.swiftness-1", "core.card.crystallize", "core.card.stamina-1", "core.card.determination-1",
+      "core.card.mana-draw", "core.card.threaten", "core.card.promise", "core.card.concentration",
+      "core.card.rage-1", "core.card.rage-2"
+    ],
+    "skillIds": [
+      "lost-legion.skill.wolfhawk.hawk-eyes", "lost-legion.skill.wolfhawk.dueling", "lost-legion.skill.wolfhawk.deadly-aim",
+      "lost-legion.skill.wolfhawk.know-your-prey", "lost-legion.skill.wolfhawk.motivation", "lost-legion.skill.wolfhawk.on-her-own",
+      "lost-legion.skill.wolfhawk.taunt", "lost-legion.skill.wolfhawk.refreshing-breeze", "lost-legion.skill.wolfhawk.refreshing-bath"
+    ],
+    "assetAlias": "hero.wolfhawk",
+    "sourceRef": "TTS bag 8f94bc; Lost Legion rulebook page 3"
+  },
+  "scenarios": [
+    {
+      "id": "lost-legion.scenario.volkares-quest",
+      "name": "Volkare's Quest",
+      "roundLimit": 6,
+      "countrysideTileCount": 5,
+      "coreNonCityTileCount": 2,
+      "coreCityTileCount": 0,
+      "cityLevelsByDifficulty": { "explorer": [3], "standard": [5], "veteran": [7] },
+      "citiesRequired": 0,
+      "finalTurnAfterObjective": false,
+      "objective": "在 Volkare 抵达传送门前找到并击败他的全部军队。",
+      "objectiveKind": "volkare",
+      "volkareArmyByDifficulty": { "explorer": 4, "standard": 6, "veteran": 8 },
+      "sourceRef": "700e93 expansion rules lines 1750-2020"
+    }
+  ],
+  "cards": [
+    {
+      "id": "lost-legion.card.hero.tirelessness", "name": "不知疲倦", "color": "blue", "kind": "basic", "deck": "hero", "copies": 1,
+      "basicText": "移动 2。", "strongText": "移动 4；本回合穿越墙不增加移动费用。",
+      "basicEffect": { "resource": "move", "amount": 2 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "resource": "move", "amount": 4 }, { "type": "special", "rule": "ignore-walls-this-turn" }] },
+      "sourceRef": "TTS 62731d", "implementation": "full", "assetAlias": "card.wolfhawk.tirelessness"
+    },
+    {
+      "id": "lost-legion.card.hero.swift-reflexes", "name": "敏捷反应", "color": "white", "kind": "basic", "deck": "hero", "copies": 1,
+      "basicText": "远程攻击 2。", "strongText": "远程攻击 3；或普通攻击 4。",
+      "basicEffect": { "resource": "attack", "amount": 2, "attackKind": "ranged", "element": "physical" },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "type": "choose-one", "labels": ["远程攻击 3", "普通攻击 4"], "options": [{ "resource": "attack", "amount": 3, "attackKind": "ranged", "element": "physical" }, { "resource": "attack", "amount": 4, "attackKind": "normal", "element": "physical" }] }] },
+      "sourceRef": "TTS 092938", "implementation": "full", "assetAlias": "card.wolfhawk.swift-reflexes"
+    },
+    {
+      "id": "lost-legion.card.advanced.mountain-lore", "name": "山地知识", "color": "green", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "移动 2；丘陵费用降低 1。", "strongText": "移动 4；丘陵与荒地费用降低 1。",
+      "basicEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 2 }, { "type": "terrain-cost", "terrains": ["hills"], "mode": "reduce", "amount": 1, "minimum": 1, "expires": "end-turn" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "resource": "move", "amount": 4 }, { "type": "terrain-cost", "terrains": ["hills", "wasteland"], "mode": "reduce", "amount": 1, "minimum": 1, "expires": "end-turn" }] },
+      "sourceRef": "TTS d3995b", "implementation": "full", "assetAlias": "card.ll.mountain-lore"
+    },
+    {
+      "id": "lost-legion.card.advanced.blood-of-ancients", "name": "远古之血", "color": "red", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "攻击 3。", "strongText": "获得一张伤牌，攻击 7。",
+      "basicEffect": { "resource": "attack", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "red", "amount": 1 }, { "type": "take-wound", "amount": 1 }, { "resource": "attack", "amount": 7 }] },
+      "sourceRef": "TTS 93b7d4", "implementation": "full", "assetAlias": "card.ll.blood-of-ancients"
+    },
+    {
+      "id": "lost-legion.card.advanced.dodge-and-weave", "name": "闪避穿梭", "color": "white", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "格挡 3。", "strongText": "格挡 6。",
+      "basicEffect": { "resource": "block", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "resource": "block", "amount": 6 }] },
+      "sourceRef": "TTS 9de475", "implementation": "full", "assetAlias": "card.ll.dodge-and-weave"
+    },
+    {
+      "id": "lost-legion.card.advanced.spell-forge", "name": "法术锻炉", "color": "blue", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "获得一个蓝色法力。", "strongText": "获得一个蓝色水晶并抽一张牌。",
+      "basicEffect": { "type": "gain-mana", "color": "blue", "amount": 1 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "type": "gain-crystal", "color": "blue", "amount": 1 }, { "type": "draw", "amount": 1 }] },
+      "sourceRef": "TTS 87bc59", "implementation": "full", "assetAlias": "card.ll.spell-forge"
+    },
+    {
+      "id": "lost-legion.card.advanced.shield-bash", "name": "盾击", "color": "blue", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "格挡 3。", "strongText": "格挡 5，并使目标护甲 -1。",
+      "basicEffect": { "resource": "block", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "resource": "block", "amount": 5 }, { "type": "modify-enemy", "modifier": "armor", "amount": -1, "expires": "end-combat" }] },
+      "sourceRef": "TTS 878d93", "implementation": "full", "assetAlias": "card.ll.shield-bash"
+    },
+    {
+      "id": "lost-legion.card.advanced.ritual-attack", "name": "仪式攻击", "color": "red", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "攻击 3。", "strongText": "弃一张非伤牌，攻击 6。",
+      "basicEffect": { "resource": "attack", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "red", "amount": 1 }, { "type": "discard", "amount": 1, "filter": "non-wound" }, { "resource": "attack", "amount": 6 }] },
+      "sourceRef": "TTS 05ef61", "implementation": "full", "assetAlias": "card.ll.ritual-attack"
+    },
+    {
+      "id": "lost-legion.card.advanced.chivalry", "name": "骑士精神", "color": "white", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "影响 3。", "strongText": "影响 6并获得 1 名望。",
+      "basicEffect": { "resource": "influence", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "resource": "influence", "amount": 6 }, { "type": "adjust-track", "track": "fame", "amount": 1 }] },
+      "sourceRef": "TTS 42eb53", "implementation": "full", "assetAlias": "card.ll.chivalry"
+    },
+    {
+      "id": "lost-legion.card.advanced.counterattack", "name": "反击", "color": "red", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "格挡 2或攻击 2。", "strongText": "格挡 4并获得攻击 2。",
+      "basicEffect": { "type": "choose-one", "labels": ["格挡 2", "攻击 2"], "options": [{ "resource": "block", "amount": 2 }, { "resource": "attack", "amount": 2 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "red", "amount": 1 }, { "resource": "block", "amount": 4 }, { "resource": "attack", "amount": 2 }] },
+      "sourceRef": "TTS 65a1d5", "implementation": "full", "assetAlias": "card.ll.counterattack"
+    },
+    {
+      "id": "lost-legion.card.advanced.peaceful-moment", "name": "宁静时刻", "color": "white", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "治疗 2。", "strongText": "治疗 4并抽一张牌。",
+      "basicEffect": { "resource": "heal", "amount": 2 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "resource": "heal", "amount": 4 }, { "type": "draw", "amount": 1 }] },
+      "sourceRef": "TTS 8122c2", "implementation": "full", "assetAlias": "card.ll.peaceful-moment"
+    },
+    {
+      "id": "lost-legion.card.advanced.force-of-nature", "name": "自然之力", "color": "green", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "移动 3。", "strongText": "移动 5或攻击 5。",
+      "basicEffect": { "resource": "move", "amount": 3 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "type": "choose-one", "labels": ["移动 5", "攻击 5"], "options": [{ "resource": "move", "amount": 5 }, { "resource": "attack", "amount": 5 }] }] },
+      "sourceRef": "TTS 474418", "implementation": "full", "assetAlias": "card.ll.force-of-nature"
+    },
+    {
+      "id": "lost-legion.card.advanced.stout-resolve", "name": "坚定决心", "color": "green", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "移动 2或格挡 2。", "strongText": "移动 4或格挡 4。",
+      "basicEffect": { "type": "choose-one", "labels": ["移动 2", "格挡 2"], "options": [{ "resource": "move", "amount": 2 }, { "resource": "block", "amount": 2 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "type": "choose-one", "labels": ["移动 4", "格挡 4"], "options": [{ "resource": "move", "amount": 4 }, { "resource": "block", "amount": 4 }] }] },
+      "sourceRef": "TTS 54b5c4", "implementation": "full", "assetAlias": "card.ll.stout-resolve"
+    },
+    {
+      "id": "lost-legion.card.advanced.temporal-portal", "name": "时间传送门", "color": "blue", "kind": "advanced", "deck": "advanced", "copies": 1,
+      "basicText": "移动 2。", "strongText": "移动 4；忽略本回合穿越墙的额外费用。",
+      "basicEffect": { "resource": "move", "amount": 2 },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "resource": "move", "amount": 4 }, { "type": "special", "rule": "ignore-walls-this-turn" }] },
+      "sourceRef": "TTS 878d94", "implementation": "full", "assetAlias": "card.ll.temporal-portal"
+    },
+    {
+      "id": "lost-legion.card.spell.charm", "name": "魅惑", "color": "white", "kind": "spell", "deck": "spell", "copies": 1,
+      "basicText": "影响 5。", "strongText": "影响 9并获得 1 声望。",
+      "basicEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "resource": "influence", "amount": 5 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "white", "amount": 1 }, { "type": "spend-mana", "color": "black", "amount": 1 }, { "resource": "influence", "amount": 9 }, { "type": "adjust-track", "track": "reputation", "amount": 1 }] },
+      "sourceRef": "TTS 2eb8e6", "implementation": "full", "assetAlias": "card.ll.charm"
+    },
+    {
+      "id": "lost-legion.card.spell.mist-form", "name": "雾化形态", "color": "blue", "kind": "spell", "deck": "spell", "copies": 1,
+      "basicText": "本回合湖泊费用为 2。", "strongText": "本回合所有可通行地形费用为 1并忽略墙。",
+      "basicEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "type": "terrain-cost", "terrains": ["lake"], "mode": "set", "amount": 2, "allowLake": true, "expires": "end-turn" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "type": "spend-mana", "color": "black", "amount": 1 }, { "type": "terrain-cost", "terrains": ["plains", "forest", "hills", "wasteland", "lake"], "mode": "set", "amount": 1, "allowLake": true, "expires": "end-turn" }, { "type": "special", "rule": "ignore-walls-this-turn" }] },
+      "sourceRef": "TTS 2eb8e1", "implementation": "full", "assetAlias": "card.ll.mist-form"
+    },
+    {
+      "id": "lost-legion.card.spell.cure", "name": "治愈", "color": "green", "kind": "spell", "deck": "spell", "copies": 1,
+      "basicText": "治疗 4。", "strongText": "治疗 8并整备一个 3 级或以下单位。",
+      "basicEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "resource": "heal", "amount": 4 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "type": "spend-mana", "color": "black", "amount": 1 }, { "resource": "heal", "amount": 8 }, { "type": "refresh-unit", "maxLevel": 3 }] },
+      "sourceRef": "TTS 47e71c", "implementation": "full", "assetAlias": "card.ll.cure"
+    },
+    {
+      "id": "lost-legion.card.spell.offering", "name": "奉献", "color": "red", "kind": "spell", "deck": "spell", "copies": 1,
+      "basicText": "攻击 5。", "strongText": "获得一张伤牌，攻城攻击 9。",
+      "basicEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "red", "amount": 1 }, { "resource": "attack", "amount": 5 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "red", "amount": 1 }, { "type": "spend-mana", "color": "black", "amount": 1 }, { "type": "take-wound", "amount": 1 }, { "resource": "attack", "amount": 9, "attackKind": "siege", "element": "physical" }] },
+      "sourceRef": "TTS 2eb8d9", "implementation": "full", "assetAlias": "card.ll.offering"
+    },
+    {
+      "id": "lost-legion.card.artifact.shield-fallen-kings", "name": "陨落诸王之盾", "color": "blue", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "格挡 5。", "strongText": "格挡 8并获得护甲 +2直到回合结束。", "basicEffect": { "resource": "block", "amount": 5 },
+      "strongEffect": { "type": "sequence", "effects": [{ "resource": "block", "amount": 8 }, { "type": "create-lasting-effect", "effect": "armor", "amount": 2, "expires": "end-turn" }] },
+      "sourceRef": "TTS 085e65", "implementation": "full", "assetAlias": "card.ll.shield-fallen-kings"
+    },
+    {
+      "id": "lost-legion.card.artifact.soul-harvester", "name": "灵魂收割者", "color": "red", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "攻击 5。", "strongText": "攻击 10并获得 2 名望。", "basicEffect": { "resource": "attack", "amount": 5 },
+      "strongEffect": { "type": "sequence", "effects": [{ "resource": "attack", "amount": 10 }, { "type": "adjust-track", "track": "fame", "amount": 2 }] },
+      "sourceRef": "TTS 085e64", "implementation": "full", "assetAlias": "card.ll.soul-harvester"
+    },
+    {
+      "id": "lost-legion.card.artifact.bow-starsdawn", "name": "星曙之弓", "color": "white", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "远程攻击 4。", "strongText": "攻城攻击 8。", "basicEffect": { "resource": "attack", "amount": 4, "attackKind": "ranged", "element": "physical" },
+      "strongEffect": { "resource": "attack", "amount": 8, "attackKind": "siege", "element": "physical" },
+      "sourceRef": "TTS 085e63", "implementation": "full", "assetAlias": "card.ll.bow-starsdawn"
+    },
+    {
+      "id": "lost-legion.card.artifact.circlet-proficiency", "name": "熟练头环", "color": "white", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "抽两张牌。", "strongText": "抽四张牌。", "basicEffect": { "type": "draw", "amount": 2 }, "strongEffect": { "type": "draw", "amount": 4 },
+      "sourceRef": "TTS 085e67", "implementation": "full", "assetAlias": "card.ll.circlet-proficiency"
+    },
+    {
+      "id": "lost-legion.card.artifact.druidic-staff", "name": "德鲁伊法杖", "color": "green", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "移动 4并忽略墙。", "strongText": "移动 8并忽略墙。",
+      "basicEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 4 }, { "type": "special", "rule": "ignore-walls-this-turn" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 8 }, { "type": "special", "rule": "ignore-walls-this-turn" }] },
+      "sourceRef": "TTS 085e66", "implementation": "full", "assetAlias": "card.ll.druidic-staff"
+    },
+    {
+      "id": "lost-legion.card.artifact.tome-all-spells", "name": "万法之书", "color": "blue", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "获得任意两个基础颜色法力。", "strongText": "获得四种基础颜色法力。",
+      "basicEffect": { "type": "special", "rule": "choose-two-mana" },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "gain-mana", "color": "red", "amount": 1 }, { "type": "gain-mana", "color": "blue", "amount": 1 }, { "type": "gain-mana", "color": "white", "amount": 1 }, { "type": "gain-mana", "color": "green", "amount": 1 }] },
+      "sourceRef": "TTS 085e68", "implementation": "full", "assetAlias": "card.ll.tome-all-spells"
+    },
+    {
+      "id": "lost-legion.card.artifact.banner-command", "name": "指挥旗帜", "color": "white", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "附着到一个单位；该单位不占用指挥槽。", "strongText": "免费招募市场中的一个非德尔法纳大师单位。",
+      "basicEffect": { "type": "special", "rule": "assign-banner-command", "target": "unit" },
+      "strongEffect": { "type": "special", "rule": "recruit-unit-free" },
+      "sourceRef": "TTS 98681f; expansion rules lines 500-508", "implementation": "full", "assetAlias": "card.ll.banner-command"
+    },
+    {
+      "id": "lost-legion.card.artifact.banner-fortitude", "name": "坚毅旗帜", "color": "green", "kind": "advanced", "deck": "artifact", "copies": 1,
+      "basicText": "附着到一个单位；每场战斗可忽略一次将使其受伤的伤害。", "strongText": "所有单位本场战斗获得护甲 +1。",
+      "basicEffect": { "type": "special", "rule": "assign-banner-fortitude", "target": "unit" },
+      "strongEffect": { "type": "special", "rule": "all-units-fortitude-bonus" },
+      "sourceRef": "TTS 7d608f; expansion rules lines 509-518", "implementation": "full", "assetAlias": "card.ll.banner-fortitude"
+    }
+  ],
+  "units": [
+    { "id": "lost-legion.unit.regular.shocktroops", "name": "突击部队", "level": 2, "armor": 4, "influenceCost": 6, "tier": "regular", "copies": 2, "siteKinds": ["keep", "refugee-camp"], "resistances": [], "abilities": [{ "label": "突击", "text": "攻城攻击 3。", "effect": { "resource": "attack", "amount": 3, "attackKind": "siege", "element": "physical" } }], "sourceRef": "TTS 75307e/422b8b", "implementation": "full", "assetAlias": "unit.ll.shocktroops" },
+    { "id": "lost-legion.unit.regular.thugs", "name": "暴徒", "level": 1, "armor": 3, "influenceCost": 4, "tier": "regular", "copies": 2, "siteKinds": ["village", "refugee-camp"], "resistances": [], "abilities": [{ "label": "蛮力", "text": "攻击 3。", "effect": { "resource": "attack", "amount": 3 } }], "sourceRef": "TTS ff2a54/4339c4", "implementation": "full", "assetAlias": "unit.ll.thugs" },
+    { "id": "lost-legion.unit.regular.scouts", "name": "斥候", "level": 1, "armor": 3, "influenceCost": 4, "tier": "regular", "copies": 2, "siteKinds": ["village", "refugee-camp"], "resistances": [], "abilities": [{ "label": "侦察", "text": "移动 3。", "effect": { "resource": "move", "amount": 3 } }], "sourceRef": "TTS 246b0d/bd1011", "implementation": "full", "assetAlias": "unit.ll.scouts" },
+    { "id": "lost-legion.unit.regular.magic-familiars", "name": "魔法使魔", "level": 2, "armor": 3, "influenceCost": 5, "tier": "regular", "copies": 2, "siteKinds": ["monastery", "mage-tower", "magical-glade", "refugee-camp"], "resistances": ["fire", "ice"], "abilities": [{ "label": "魔法格挡", "text": "冰火格挡 4。", "effect": { "resource": "block", "amount": 4, "element": "cold-fire" } }], "sourceRef": "TTS d8e49b/0a2e0b", "implementation": "full", "assetAlias": "unit.ll.magic-familiars" },
+    { "id": "lost-legion.unit.elite.heroes", "name": "英雄", "level": 3, "armor": 5, "influenceCost": 8, "tier": "elite", "copies": 4, "siteKinds": ["keep", "city", "refugee-camp"], "resistances": [], "abilities": [{ "label": "英雄攻势", "text": "攻击 5。", "effect": { "resource": "attack", "amount": 5 } }], "sourceRef": "TTS 88f3f2/613dca/8ccbdd/4ee245", "implementation": "full", "assetAlias": "unit.ll.heroes" },
+    { "id": "lost-legion.unit.elite.delphana-masters", "name": "德尔法纳大师", "level": 4, "armor": 6, "influenceCost": 12, "tier": "elite", "copies": 2, "siteKinds": ["city", "refugee-camp"], "resistances": ["fire", "ice"], "abilities": [{ "label": "奥术轰击", "text": "攻城冰火攻击 6。", "effect": { "resource": "attack", "amount": 6, "attackKind": "siege", "element": "cold-fire" } }, { "label": "奥术屏障", "text": "冰火格挡 7。", "effect": { "resource": "block", "amount": 7, "element": "cold-fire" } }], "sourceRef": "TTS 9c5c38/5c2da0", "implementation": "full", "assetAlias": "unit.ll.delphana-masters" },
+    { "id": "lost-legion.unit.elite.sorcerers", "name": "术士", "level": 3, "armor": 4, "influenceCost": 9, "tier": "elite", "copies": 2, "siteKinds": ["mage-tower", "city", "refugee-camp"], "resistances": ["fire"], "abilities": [{ "label": "烈焰", "text": "远程火焰攻击 5。", "effect": { "resource": "attack", "amount": 5, "attackKind": "ranged", "element": "fire" } }], "sourceRef": "TTS 223b47/c3e3c5", "implementation": "full", "assetAlias": "unit.ll.sorcerers" }
+  ],
+  "skills": [
+    { "id": "lost-legion.skill.wolfhawk.hawk-eyes", "name": "鹰眼", "description": "移动 1；夜间探索少 1 移动。", "ruleText": "每回合一次获得移动 1。", "effect": { "resource": "move", "amount": 1 }, "oncePerRound": false, "sourceRef": "TTS Wolfhawk skill Hawk Eyes", "implementation": "full", "assetAlias": "skill.wolfhawk.hawk-eyes" },
+    { "id": "lost-legion.skill.wolfhawk.dueling", "name": "决斗", "description": "格挡 1并保留反击。", "ruleText": "格挡 1；击败未使用单位协助的目标时额外获得名望。", "effect": { "type": "sequence", "effects": [{ "resource": "block", "amount": 1 }, { "resource": "attack", "amount": 1 }] }, "oncePerRound": false, "sourceRef": "TTS Wolfhawk skill Dueling", "implementation": "full", "assetAlias": "skill.wolfhawk.dueling" },
+    { "id": "lost-legion.skill.wolfhawk.deadly-aim", "name": "致命瞄准", "description": "增加攻击。", "ruleText": "本回合一次获得远程攻击 1或普通攻击 2。", "effect": { "type": "choose-one", "labels": ["远程攻击 1", "普通攻击 2"], "options": [{ "resource": "attack", "amount": 1, "attackKind": "ranged", "element": "physical" }, { "resource": "attack", "amount": 2 }] }, "oncePerRound": false, "sourceRef": "TTS Wolfhawk skill Deadly Aim", "implementation": "full", "assetAlias": "skill.wolfhawk.deadly-aim" },
+    { "id": "lost-legion.skill.wolfhawk.know-your-prey", "name": "知己知彼", "description": "忽略一个敌人能力。", "ruleText": "每轮一次移除目标敌人的抗性。", "effect": { "type": "modify-enemy", "modifier": "remove-resistance", "scope": "target", "expires": "end-combat" }, "oncePerRound": true, "sourceRef": "TTS Wolfhawk skill Know Your Prey", "implementation": "full", "assetAlias": "skill.wolfhawk.know-your-prey" },
+    { "id": "lost-legion.skill.wolfhawk.motivation", "name": "激励", "description": "抽两张牌。", "ruleText": "每轮一次抽两张牌。", "effect": { "type": "draw", "amount": 2 }, "oncePerRound": true, "sourceRef": "TTS Wolfhawk skill Motivation", "implementation": "full", "assetAlias": "skill.wolfhawk.motivation" },
+    { "id": "lost-legion.skill.wolfhawk.on-her-own", "name": "特立独行", "description": "影响 1。", "ruleText": "每回合一次获得影响 1。", "effect": { "resource": "influence", "amount": 1 }, "oncePerRound": false, "sourceRef": "TTS Wolfhawk skill On Her Own", "implementation": "full", "assetAlias": "skill.wolfhawk.on-her-own" },
+    { "id": "lost-legion.skill.wolfhawk.taunt", "name": "嘲讽", "description": "降低目标攻击。", "ruleText": "格挡阶段使目标攻击 -1。", "effect": { "type": "modify-enemy", "modifier": "attack", "amount": -1, "scope": "target", "expires": "end-combat" }, "oncePerRound": false, "sourceRef": "TTS Wolfhawk skill Taunt", "implementation": "full", "assetAlias": "skill.wolfhawk.taunt" },
+    { "id": "lost-legion.skill.wolfhawk.refreshing-breeze", "name": "提神微风", "description": "治疗 1并获得白色水晶。", "ruleText": "每轮一次，战斗外获得治疗 1和白色水晶。", "effect": { "type": "sequence", "effects": [{ "resource": "heal", "amount": 1 }, { "type": "gain-crystal", "color": "white", "amount": 1 }] }, "oncePerRound": true, "sourceRef": "TTS Wolfhawk skill Refreshing Breeze", "implementation": "full", "assetAlias": "skill.wolfhawk.refreshing-breeze" },
+    { "id": "lost-legion.skill.wolfhawk.refreshing-bath", "name": "提神沐浴", "description": "治疗 1并获得蓝色水晶。", "ruleText": "每轮一次，战斗外获得治疗 1和蓝色水晶。", "effect": { "type": "sequence", "effects": [{ "resource": "heal", "amount": 1 }, { "type": "gain-crystal", "color": "blue", "amount": 1 }] }, "oncePerRound": true, "sourceRef": "TTS Wolfhawk skill Refreshing Bath", "implementation": "full", "assetAlias": "skill.wolfhawk.refreshing-bath" }
+  ],
+  "enemies": [
+    { "id": "lost-legion.enemy.green.orc-skirmishers", "name": "兽人散兵", "pool": "green", "copies": 2, "armor": 3, "elusiveArmor": 5, "attack": [3], "attackElement": "physical", "resistances": [], "abilities": ["elusive"], "fame": 2, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.orc-skirmishers" },
+    { "id": "lost-legion.enemy.green.orc-war-beasts", "name": "兽人战争巨兽", "pool": "green", "copies": 2, "armor": 4, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["brutal"], "fame": 3, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.orc-war-beasts" },
+    { "id": "lost-legion.enemy.green.orc-trackers", "name": "兽人追踪者", "pool": "green", "copies": 2, "armor": 3, "attack": [4], "attackElement": "physical", "resistances": [], "abilities": ["assassination"], "fame": 2, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.orc-trackers" },
+    { "id": "lost-legion.enemy.green.orc-stonethrower", "name": "兽人投石手", "pool": "green", "copies": 1, "armor": 5, "attack": [7], "attackElement": "physical", "resistances": [], "abilities": ["cumbersome"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.orc-stonethrower" },
+    { "id": "lost-legion.enemy.violet.sorcerers", "name": "术士", "pool": "violet", "copies": 2, "armor": 5, "attack": [5], "attackElement": "fire", "resistances": ["fire"], "abilities": ["arcane-immunity"], "fame": 5, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.sorcerers" },
+    { "id": "lost-legion.enemy.violet.magic-familiars", "name": "魔法使魔", "pool": "violet", "copies": 2, "armor": 4, "attack": [4, 4], "attackElement": "cold-fire", "resistances": ["fire", "ice"], "abilities": ["multi-attack"], "fame": 5, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.magic-familiars" },
+    { "id": "lost-legion.enemy.gray.heroes-fire", "name": "烈焰英雄", "pool": "gray", "copies": 1, "armor": 5, "attack": [4], "attackElement": "fire", "resistances": [], "abilities": ["unfortified"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.heroes-fire" },
+    { "id": "lost-legion.enemy.gray.heroes-ice", "name": "寒冰英雄", "pool": "gray", "copies": 1, "armor": 5, "attack": [4], "attackElement": "ice", "resistances": [], "abilities": ["unfortified"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.heroes-ice" },
+    { "id": "lost-legion.enemy.gray.heroes-swift", "name": "迅捷英雄", "pool": "gray", "copies": 1, "armor": 5, "attack": [4], "attackElement": "physical", "resistances": [], "abilities": ["swift", "unfortified"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.heroes-swift" },
+    { "id": "lost-legion.enemy.gray.heroes-fortified", "name": "壁垒英雄", "pool": "gray", "copies": 1, "armor": 5, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["fortified"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.heroes-fortified" },
+    { "id": "lost-legion.enemy.gray.thugs", "name": "暴徒", "pool": "gray", "copies": 2, "armor": 4, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["brutal"], "fame": 3, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.thugs" },
+    { "id": "lost-legion.enemy.gray.shocktroops", "name": "突击部队", "pool": "gray", "copies": 2, "armor": 5, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["fortified"], "fame": 4, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.shocktroops" },
+    { "id": "lost-legion.enemy.brown.shadow", "name": "暗影", "pool": "brown", "copies": 2, "armor": 4, "elusiveArmor": 7, "attack": [5], "attackElement": "physical", "resistances": ["physical"], "abilities": ["elusive"], "fame": 5, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.shadow" },
+    { "id": "lost-legion.enemy.brown.manticore", "name": "蝎尾狮", "pool": "brown", "copies": 2, "armor": 5, "attack": [4, 4], "attackElement": "physical", "resistances": [], "abilities": ["multi-attack", "poison"], "fame": 6, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.manticore" },
+    { "id": "lost-legion.enemy.brown.hydra", "name": "九头蛇", "pool": "brown", "copies": 1, "armor": 6, "attack": [3, 3, 3], "attackElement": "physical", "resistances": [], "abilities": ["multi-attack"], "fame": 7, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.hydra" },
+    { "id": "lost-legion.enemy.red.storm-dragon", "name": "风暴龙", "pool": "red", "copies": 1, "armor": 8, "attack": [7], "attackElement": "ice", "resistances": ["ice"], "abilities": ["swift"], "fame": 9, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.storm-dragon" },
+    { "id": "lost-legion.enemy.red.lava-dragon", "name": "熔岩龙", "pool": "red", "copies": 2, "armor": 8, "attack": [8], "attackElement": "fire", "resistances": ["fire"], "abilities": ["brutal"], "fame": 9, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.lava-dragon" },
+    { "id": "lost-legion.enemy.red.dragon-summoner", "name": "召唤巨龙", "pool": "red", "copies": 2, "armor": 7, "attack": [5, 5], "attackElement": "cold-fire", "resistances": ["fire", "ice"], "abilities": ["summon", "multi-attack"], "fame": 10, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.dragon-summoner" },
+    { "id": "lost-legion.enemy.white.grim-legionnaires", "name": "冷酷军团兵", "pool": "white", "copies": 2, "armor": 5, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["arcane-immunity"], "fame": 5, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.grim-legionnaires" },
+    { "id": "lost-legion.enemy.white.fire-catapult", "name": "火焰投石机", "pool": "white", "copies": 1, "armor": 6, "attack": [8], "attackElement": "fire", "resistances": [], "abilities": ["cumbersome"], "fame": 6, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.fire-catapult" },
+    { "id": "lost-legion.enemy.white.delphana-masters", "name": "德尔法纳大师", "pool": "white", "copies": 2, "armor": 7, "attack": [6], "attackElement": "cold-fire", "resistances": ["fire", "ice"], "abilities": ["arcane-immunity"], "fame": 8, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.delphana-masters" },
+    { "id": "lost-legion.enemy.white.ice-catapult", "name": "寒冰投石机", "pool": "white", "copies": 1, "armor": 6, "attack": [8], "attackElement": "ice", "resistances": [], "abilities": ["cumbersome"], "fame": 6, "sourceRef": "Lost Legion enemy index page 4", "assetAlias": "enemy.ll.ice-catapult" }
+  ],
+  "sites": [
+    { "id": "lost-legion.site.maze", "kind": "maze", "name": "迷宫", "fortified": false, "recruit": false, "reward": "artifact", "assetAlias": "site.ll.maze" },
+    { "id": "lost-legion.site.labyrinth", "kind": "labyrinth", "name": "大迷宫", "fortified": false, "recruit": false, "reward": "artifact", "assetAlias": "site.ll.labyrinth" },
+    { "id": "lost-legion.site.deep-mine", "kind": "deep-mine", "name": "深层矿井", "fortified": false, "recruit": false, "assetAlias": "site.ll.deep-mine" },
+    { "id": "lost-legion.site.refugee-camp", "kind": "refugee-camp", "name": "难民营", "fortified": false, "recruit": true, "healCost": 2, "assetAlias": "site.ll.refugee-camp" },
+    { "id": "lost-legion.site.volkare-camp", "kind": "volkare-camp", "name": "Volkare 营地", "fortified": true, "recruit": false, "assetAlias": "site.ll.volkare-camp" }
+  ],
+  "tiles": [
+    { "id": "lost-legion.tile.countryside-12", "name": "失落军团乡野 12", "kind": "countryside", "terrains": ["plains", "hills", "forest", "plains", "wasteland", "forest", "plains"], "site": { "index": 2, "definitionId": "lost-legion.site.refugee-camp" }, "enemies": [{ "index": 4, "pool": "green" }], "walls": [[0, 1], [0, 2]], "assetAlias": "tile.ll.12" },
+    { "id": "lost-legion.tile.countryside-13", "name": "失落军团乡野 13", "kind": "countryside", "terrains": ["forest", "plains", "lake", "hills", "plains", "forest", "plains"], "site": { "index": 5, "definitionId": "lost-legion.site.deep-mine" }, "enemies": [{ "index": 3, "pool": "green" }], "walls": [[0, 5], [5, 6]], "assetAlias": "tile.ll.13" },
+    { "id": "lost-legion.tile.countryside-14", "name": "失落军团乡野 14", "kind": "countryside", "terrains": ["hills", "wasteland", "plains", "forest", "hills", "plains", "forest"], "site": { "index": 1, "definitionId": "lost-legion.site.maze" }, "enemies": [{ "index": 1, "pool": "brown" }], "walls": [[0, 3], [0, 4]], "assetAlias": "tile.ll.14" },
+    { "id": "lost-legion.tile.core-9", "name": "失落军团核心 9", "kind": "core", "terrains": ["wasteland", "hills", "forest", "plains", "wasteland", "lake", "hills"], "site": { "index": 0, "definitionId": "lost-legion.site.labyrinth" }, "enemies": [{ "index": 0, "pool": "red" }, { "index": 4, "pool": "violet" }], "walls": [[0, 1], [0, 6]], "assetAlias": "tile.ll.core-9" },
+    { "id": "lost-legion.tile.core-10", "name": "失落军团核心 10", "kind": "core", "terrains": ["forest", "hills", "plains", "wasteland", "forest", "hills", "plains"], "site": { "index": 3, "definitionId": "lost-legion.site.refugee-camp" }, "enemies": [{ "index": 2, "pool": "white" }, { "index": 5, "pool": "red" }], "walls": [[0, 2], [0, 3], [3, 4]], "assetAlias": "tile.ll.core-10" },
+    { "id": "lost-legion.tile.volkare-camp", "name": "Volkare 营地", "kind": "core", "terrains": ["wasteland", "plains", "hills", "plains", "wasteland", "hills", "plains"], "site": { "index": 0, "definitionId": "lost-legion.site.volkare-camp" }, "enemies": [], "walls": [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6]], "assetAlias": "tile.ll.volkare-camp" }
+  ]
+}

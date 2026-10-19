@@ -1,0 +1,687 @@
+{
+  "seed": "solver-acceptance-067",
+  "scenarioId": "core.scenario.single-city-development",
+  "heroId": "core.hero.tovak",
+  "difficulty": "explorer",
+  "enabledModules": [
+    "core.tutorial-v0.1",
+    "core.conquest-v0.2",
+    "core.core-complete-v0.3",
+    "core.rules-fidelity-v0.5"
+  ],
+  "contentHash": "39dfc7d4",
+  "commandSequence": [
+    {
+      "type": "SELECT_TACTIC",
+      "tacticId": "core.tactic.day.planning"
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_INTERACTION"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-1",
+      "mode": "strong"
+    },
+    {
+      "type": "BUY_MARKET",
+      "market": "unit",
+      "definitionId": "core.unit.regular.savages"
+    },
+    {
+      "type": "FINISH_INTERACTION"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-6",
+      "mode": "strong"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 1,
+        "r": -1
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-2",
+      "mode": "basic"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-3",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 1,
+        "r": 0
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-4",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-5",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-11",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 2,
+        "r": -1
+      }
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_COMBAT",
+      "enemyIds": [
+        "enemy-22"
+      ]
+    },
+    {
+      "type": "ACTIVATE_UNIT",
+      "unitId": "unit-19",
+      "abilityIndex": 1
+    },
+    {
+      "type": "DECLARE_ATTACK",
+      "enemyIds": [
+        "enemy-22"
+      ],
+      "kind": "siege"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-10",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-7",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-8",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-9",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "RESOLVE_DECISION",
+      "optionId": "core.skill.tovak.battle-frenzy"
+    },
+    {
+      "type": "DECLARE_END_ROUND"
+    },
+    {
+      "type": "SELECT_TACTIC",
+      "tacticId": "core.tactic.night.from-dusk"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-11",
+      "mode": "strong"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 3,
+        "r": -2
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-13",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 4,
+        "r": -2
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-7",
+      "mode": "basic"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-14",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-16",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 3,
+        "r": -1
+      }
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-2",
+      "mode": "basic"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-6",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 3,
+        "r": 0
+      }
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_COMBAT",
+      "enemyIds": [
+        "enemy-25"
+      ]
+    },
+    {
+      "type": "ACTIVATE_UNIT",
+      "unitId": "unit-19",
+      "abilityIndex": 1
+    },
+    {
+      "type": "DECLARE_ATTACK",
+      "enemyIds": [
+        "enemy-25"
+      ],
+      "kind": "ranged"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "USE_SKILL",
+      "skillId": "core.skill.tovak.battle-frenzy"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-10",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-15",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-34",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-1",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-4",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 3,
+        "r": 1
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-5",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-8",
+      "mode": "basic"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-9",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "DECLARE_END_ROUND"
+    },
+    {
+      "type": "SELECT_TACTIC",
+      "tacticId": "core.tactic.day.planning"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-7",
+      "mode": "strong"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_COMBAT",
+      "enemyIds": [
+        "enemy-58"
+      ]
+    },
+    {
+      "type": "ACTIVATE_UNIT",
+      "unitId": "unit-19",
+      "abilityIndex": 1
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-15",
+      "mode": "strong"
+    },
+    {
+      "type": "DECLARE_BLOCK",
+      "enemyId": "enemy-58",
+      "attackIndex": 0
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "USE_SKILL",
+      "skillId": "core.skill.tovak.battle-frenzy"
+    },
+    {
+      "type": "DECLARE_ATTACK",
+      "enemyIds": [
+        "enemy-58"
+      ],
+      "kind": "normal"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-16",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-3",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-5",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "RESOLVE_DECISION",
+      "optionId": "core.skill.tovak.cold-toughness"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-2",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 4,
+        "r": 0
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-6",
+      "mode": "basic"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-34",
+      "mode": "basic"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-8",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 5,
+        "r": -1
+      }
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_COMBAT",
+      "enemyIds": [
+        "enemy-57"
+      ]
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-10",
+      "mode": "strong"
+    },
+    {
+      "type": "USE_SKILL",
+      "skillId": "core.skill.tovak.cold-toughness"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-1",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-11",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-14",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-4",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-9",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ASSIGN_DAMAGE",
+      "enemyId": "enemy-57",
+      "attackIndex": 0,
+      "target": "hero"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "DECLARE_END_ROUND"
+    },
+    {
+      "type": "SELECT_TACTIC",
+      "tacticId": "core.tactic.night.from-dusk"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-7",
+      "mode": "strong"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 6,
+        "r": -1
+      }
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-1",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-4",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "EXPLORE_TILE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-5",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-9",
+      "mode": "sideways",
+      "sidewaysResource": "move"
+    },
+    {
+      "type": "REST",
+      "discardCardId": "card-79",
+      "woundCardIds": []
+    },
+    {
+      "type": "END_TURN"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-6",
+      "mode": "strong"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-13",
+      "mode": "basic"
+    },
+    {
+      "type": "MOVE_HERO",
+      "to": {
+        "q": 7,
+        "r": -2
+      }
+    },
+    {
+      "type": "FINISH_MOVEMENT"
+    },
+    {
+      "type": "START_COMBAT",
+      "enemyIds": [
+        "enemy-86"
+      ]
+    },
+    {
+      "type": "ACTIVATE_UNIT",
+      "unitId": "unit-19",
+      "abilityIndex": 1
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-15",
+      "mode": "basic"
+    },
+    {
+      "type": "USE_SKILL",
+      "skillId": "core.skill.tovak.cold-toughness"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-12",
+      "mode": "sideways",
+      "sidewaysResource": "block"
+    },
+    {
+      "type": "DECLARE_BLOCK",
+      "enemyId": "enemy-86",
+      "attackIndex": 0
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "USE_SKILL",
+      "skillId": "core.skill.tovak.battle-frenzy"
+    },
+    {
+      "type": "DECLARE_ATTACK",
+      "enemyIds": [
+        "enemy-86"
+      ],
+      "kind": "normal"
+    },
+    {
+      "type": "PLAY_CARD",
+      "cardId": "card-16",
+      "mode": "sideways",
+      "sidewaysResource": "attack"
+    },
+    {
+      "type": "ADVANCE_COMBAT_PHASE"
+    },
+    {
+      "type": "END_TURN"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+export { createConquestGame } from './create';
+export { SUPPORTED_SPECIAL_RULES } from './cards';
+export { executeConquestIntent, getConquestLegalIntents, projectConquestView, conquestStateHash } from './engine';
+export { assertConquestInvariants, commandCapacity, conquestTerrainCost, createRuleRuntime, reputationModifier } from './state';
+export { calculateConquestScore, resolveScenario } from './scenario';
+export { allowedMarkets, marketCost } from './market';
+export { explorationDistance, frontierCoord, frontierCoords, hasWall, nextTileCenter, placeTile, wallKey } from './map';
+export { runVolkareTurn } from './turn';
+export { chooseConquestSolverIntent, runConquestSolver, runConquestSolverBatch, runPassiveConquestBaseline } from './solver';
+export type { ConquestSolverBatch, ConquestSolverCoverage, ConquestSolverOptions, ConquestSolverRun, ConquestSolverStep } from './solver';
+export { enemyAllowsEffect } from './combat';
+export { moveEntity, locateEntity, assertZoneUniqueness } from './zones';
+export { createConquestHistory, recordConquestCommand, undoConquestHistory } from './history';
+export type { ConquestHistory } from './history';
+export { ConquestReplayError, replayConquest } from './replay';
+export type { ConquestReplayInput, ConquestReplayResult } from './replay';
+export type * from './types';

@@ -1,0 +1,99 @@
+{
+  "id": "krang.character-v0.7",
+  "version": "0.7.0",
+  "requires": ["core.official-v0.3", "rules.official-v0.5"],
+  "conflicts": [],
+  "hero": {
+    "id": "krang.hero.krang",
+    "name": "Krang",
+    "armor": 2,
+    "handLimit": 5,
+    "commandSlots": 1,
+    "basicDeck": [
+      "krang.card.ruthless-coercion", "core.card.determination-1", "core.card.crystallize", "core.card.rage-1",
+      "core.card.swiftness-1", "core.card.stamina-1", "core.card.tranquility", "core.card.rage-2",
+      "core.card.mana-draw", "core.card.stamina-2", "core.card.hero.improvisation", "core.card.march-1",
+      "core.card.concentration", "core.card.swiftness-2", "krang.card.savage-harvesting", "core.card.promise"
+    ],
+    "skillIds": [
+      "krang.skill.curse", "krang.skill.arcane-disguise", "krang.skill.puppet-master", "krang.skill.battle-hardened",
+      "krang.skill.regenerate", "krang.skill.shamanic-ritual", "krang.skill.master-of-chaos", "krang.skill.spirit-guides", "krang.skill.battle-frenzy"
+    ],
+    "assetAlias": "hero.krang",
+    "sourceRef": "Krang Character Expansion rules, pp. 2-3; component 353"
+  },
+  "cards": [
+    {
+      "id": "krang.card.ruthless-coercion", "name": "无情胁迫", "color": "red", "kind": "basic",
+      "basicText": "影响 2。本回合招募一个单位时费用 -2；若本回合招募了单位，声望 -1。",
+      "strongText": "影响 6，声望 -1。可支付每个单位等级两倍的影响来整备任意数量的 I/II 级单位。",
+      "basicEffect": { "type": "sequence", "effects": [{ "resource": "influence", "amount": 2 }, { "type": "special", "rule": "krang-ruthless-coercion-basic" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "resource": "influence", "amount": 6 }, { "type": "adjust-track", "track": "reputation", "amount": -1 }, { "type": "special", "rule": "krang-ruthless-coercion-strong" }] },
+      "sourceRef": "Krang basic action card 352", "implementation": "full", "assetAlias": "card.krang.ruthless-coercion"
+    },
+    {
+      "id": "krang.card.savage-harvesting", "name": "野蛮收割", "color": "green", "kind": "basic",
+      "basicText": "移动 2。本回合移动一次后，可弃一张牌获得同色水晶；弃神器时颜色任选。限一次。",
+      "strongText": "移动 4。本回合每次移动后均可弃一张牌获得同色水晶；弃神器时颜色任选。",
+      "basicEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 2 }, { "type": "special", "rule": "krang-savage-harvesting-once" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 4 }, { "type": "special", "rule": "krang-savage-harvesting-each" }] },
+      "sourceRef": "Krang basic action card 337", "implementation": "full", "assetAlias": "card.krang.savage-harvesting"
+    }
+  ],
+  "skills": [
+    {
+      "id": "krang.skill.curse", "name": "诅咒", "description": "每回合一次：使一个敌人的攻击或护甲 -1（护甲最低为 1）。远程/攻城阶段不能以工事敌人为目标。",
+      "ruleText": "每回合一次：选择一个敌人，使其一次攻击 -1，或护甲 -1（最低为 1）。远程和攻城阶段不能对工事敌人使用。",
+      "effect": { "type": "special", "rule": "krang-curse", "target": "enemy" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token: Curse", "implementation": "full", "assetAlias": "skill.krang.curse"
+    },
+    {
+      "id": "krang.skill.arcane-disguise", "name": "奥术伪装", "description": "每回合一次：影响 2，或翻面以在本回合忽略声望轨效果。支付绿色法力可翻回。",
+      "ruleText": "影响 2；或翻面并在本回合忽略声望修正。任意回合支付 1 绿色法力可翻回。",
+      "effect": { "type": "choose-one", "labels": ["影响 2", "翻面并忽略声望"], "options": [{ "resource": "influence", "amount": 2 }, { "type": "special", "rule": "krang-arcane-disguise" }] },
+      "oncePerRound": false, "flipBackCondition": "pay-green", "sourceRef": "Krang skill token: Arcane Disguise", "implementation": "full", "assetAlias": "skill.krang.arcane-disguise"
+    },
+    {
+      "id": "krang.skill.puppet-master", "name": "傀儡大师", "description": "每回合一次：保留本回合击败的一个敌人，或弃置已保留敌人并获得其一半攻击或护甲的资源。",
+      "ruleText": "保留本回合击败的一个敌人；或弃置一个已保留敌人，获得其攻击值一半的攻击，或护甲一半的格挡，均向上取整并保留相应元素。",
+      "effect": { "type": "special", "rule": "krang-puppet-master" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token and expansion FAQ: Puppet Master", "implementation": "full", "assetAlias": "skill.krang.puppet-master"
+    },
+    {
+      "id": "krang.skill.battle-hardened", "name": "身经百战", "description": "每回合一次：下一次英雄承受伤害时，物理伤害减少 2，非物理伤害减少 1。",
+      "ruleText": "忽略下一次分配给英雄的单次物理攻击 2 点伤害，或非物理攻击 1 点伤害。",
+      "effect": { "type": "special", "rule": "krang-battle-hardened" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token: Battle Hardened", "implementation": "full", "assetAlias": "skill.krang.battle-hardened"
+    },
+    {
+      "id": "krang.skill.regenerate", "name": "再生", "description": "每回合一次：支付任意颜色法力并移除一张手牌伤牌；若支付红色法力，再抽一张牌。",
+      "ruleText": "支付任意颜色法力并从手牌移除一张伤牌。单人模式中支付红色法力时再抽一张牌。",
+      "effect": { "type": "special", "rule": "krang-regenerate", "target": "hand-card" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token: Regenerate", "implementation": "full", "assetAlias": "skill.krang.regenerate"
+    },
+    {
+      "id": "krang.skill.shamanic-ritual", "name": "萨满仪式", "description": "每轮一次：翻面并获得任意颜色法力令牌。可用本回合行动将其翻回。",
+      "ruleText": "翻面以获得一枚任意颜色法力令牌；可将翻回作为本回合行动。",
+      "effect": { "type": "special", "rule": "krang-shamanic-ritual" }, "oncePerRound": true, "flipBackCondition": "action",
+      "sourceRef": "Krang skill token: Shamanic Ritual", "implementation": "full", "assetAlias": "skill.krang.shamanic-ritual"
+    },
+    {
+      "id": "krang.skill.master-of-chaos", "name": "混乱大师", "description": "每回合一次：顺时针推进颜色并获得对应资源；上一回合未使用时可在下回合前免费推进。",
+      "ruleText": "颜色依次为蓝、绿、白、红、黑、金。使用时推进一格并获得对应的格挡 3、移动 1、影响 2、攻击 2、冰火远程攻击 1；金色任选。",
+      "effect": { "type": "special", "rule": "krang-master-of-chaos" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token: Master of Chaos", "implementation": "full", "assetAlias": "skill.krang.master-of-chaos"
+    },
+    {
+      "id": "krang.skill.spirit-guides", "name": "灵魂向导", "description": "每回合一次：移动 1；或在格挡阶段为任意类型格挡 +1。",
+      "ruleText": "获得移动 1；在格挡阶段也可改为获得任意元素格挡 1。",
+      "effect": { "type": "special", "rule": "krang-spirit-guides" }, "oncePerRound": false,
+      "sourceRef": "Krang skill token and expansion FAQ: Spirit Guides", "implementation": "full", "assetAlias": "skill.krang.spirit-guides"
+    },
+    {
+      "id": "krang.skill.battle-frenzy", "name": "战斗狂乱", "description": "每回合一次：攻击 2，或翻面获得攻击 4。休息一回合可翻回。",
+      "ruleText": "攻击 2；或翻面改为攻击 4。执行休息时可翻回。",
+      "effect": { "type": "choose-one", "labels": ["攻击 2", "翻面，攻击 4"], "options": [{ "resource": "attack", "amount": 2 }, { "type": "special", "rule": "krang-battle-frenzy" }] },
+      "oncePerRound": false, "flipBackCondition": "rest", "sourceRef": "Krang skill token: Battle Frenzy", "implementation": "full", "assetAlias": "skill.krang.battle-frenzy"
+    }
+  ]
+}

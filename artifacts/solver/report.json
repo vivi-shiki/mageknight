@@ -1,0 +1,1921 @@
+{
+  "generatedAt": "2026-10-18T17:01:56.273Z",
+  "seeds": 100,
+  "terminalRuns": 100,
+  "winningRuns": 1,
+  "averageScore": 4.89,
+  "passiveAverageScore": 1,
+  "combatRuns": 95,
+  "skillRuns": 33,
+  "aggregate": {
+    "tilesExplored": 419,
+    "combatsStarted": 296,
+    "combatsWon": 92,
+    "marketCardsBought": 14,
+    "unitsRecruited": 100,
+    "skillsUsed": 78,
+    "citiesConquered": 1
+  },
+  "runs": [
+    {
+      "seed": "solver-acceptance-000",
+      "status": "lost",
+      "steps": 138,
+      "score": 7,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-001",
+      "status": "lost",
+      "steps": 138,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-002",
+      "status": "lost",
+      "steps": 135,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-003",
+      "status": "lost",
+      "steps": 163,
+      "score": -5,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 1,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-004",
+      "status": "lost",
+      "steps": 156,
+      "score": -4,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-005",
+      "status": "lost",
+      "steps": 138,
+      "score": -2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-006",
+      "status": "lost",
+      "steps": 162,
+      "score": -9,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-007",
+      "status": "lost",
+      "steps": 150,
+      "score": -9,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-008",
+      "status": "lost",
+      "steps": 163,
+      "score": -18,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 5,
+        "combatsWon": 0,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-009",
+      "status": "lost",
+      "steps": 113,
+      "score": -6,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-010",
+      "status": "lost",
+      "steps": 120,
+      "score": -5,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-011",
+      "status": "lost",
+      "steps": 129,
+      "score": -2,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-012",
+      "status": "lost",
+      "steps": 111,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-013",
+      "status": "lost",
+      "steps": 123,
+      "score": 0,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-014",
+      "status": "lost",
+      "steps": 163,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-015",
+      "status": "lost",
+      "steps": 141,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-016",
+      "status": "lost",
+      "steps": 143,
+      "score": 5,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-017",
+      "status": "lost",
+      "steps": 130,
+      "score": 12,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-018",
+      "status": "lost",
+      "steps": 166,
+      "score": 21,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 3,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 4,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-019",
+      "status": "lost",
+      "steps": 120,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 0,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-020",
+      "status": "lost",
+      "steps": 114,
+      "score": 7,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-021",
+      "status": "lost",
+      "steps": 104,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-022",
+      "status": "lost",
+      "steps": 164,
+      "score": 6,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 3,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-023",
+      "status": "lost",
+      "steps": 132,
+      "score": -10,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-024",
+      "status": "lost",
+      "steps": 143,
+      "score": 13,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-025",
+      "status": "lost",
+      "steps": 126,
+      "score": -6,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-026",
+      "status": "lost",
+      "steps": 102,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 0,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-027",
+      "status": "lost",
+      "steps": 129,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-028",
+      "status": "lost",
+      "steps": 123,
+      "score": 5,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-029",
+      "status": "lost",
+      "steps": 198,
+      "score": 33,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 6,
+        "combatsWon": 4,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 5,
+        "citiesConquered": 0,
+        "decisionsResolved": 3,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-030",
+      "status": "lost",
+      "steps": 114,
+      "score": 5,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 0,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-031",
+      "status": "lost",
+      "steps": 125,
+      "score": 8,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-032",
+      "status": "lost",
+      "steps": 170,
+      "score": 26,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 3,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 5,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-033",
+      "status": "lost",
+      "steps": 145,
+      "score": 24,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 3,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-034",
+      "status": "lost",
+      "steps": 161,
+      "score": -12,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-035",
+      "status": "lost",
+      "steps": 137,
+      "score": -3,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-036",
+      "status": "lost",
+      "steps": 118,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-037",
+      "status": "lost",
+      "steps": 122,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-038",
+      "status": "lost",
+      "steps": 140,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-039",
+      "status": "lost",
+      "steps": 163,
+      "score": 6,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 5,
+        "combatsWon": 1,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-040",
+      "status": "lost",
+      "steps": 155,
+      "score": 21,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-041",
+      "status": "lost",
+      "steps": 135,
+      "score": -4,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-042",
+      "status": "lost",
+      "steps": 109,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-043",
+      "status": "lost",
+      "steps": 119,
+      "score": 10,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-044",
+      "status": "lost",
+      "steps": 124,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-045",
+      "status": "lost",
+      "steps": 141,
+      "score": -8,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-046",
+      "status": "lost",
+      "steps": 114,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-047",
+      "status": "lost",
+      "steps": 133,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-048",
+      "status": "lost",
+      "steps": 151,
+      "score": 21,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 3,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-049",
+      "status": "lost",
+      "steps": 137,
+      "score": 5,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-050",
+      "status": "lost",
+      "steps": 107,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-051",
+      "status": "lost",
+      "steps": 137,
+      "score": 15,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-052",
+      "status": "lost",
+      "steps": 134,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-053",
+      "status": "lost",
+      "steps": 123,
+      "score": 0,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-054",
+      "status": "lost",
+      "steps": 102,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 0,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-055",
+      "status": "lost",
+      "steps": 118,
+      "score": 10,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-056",
+      "status": "lost",
+      "steps": 135,
+      "score": -13,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-057",
+      "status": "lost",
+      "steps": 112,
+      "score": 20,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-058",
+      "status": "lost",
+      "steps": 117,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-059",
+      "status": "lost",
+      "steps": 149,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-060",
+      "status": "lost",
+      "steps": 151,
+      "score": 7,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-061",
+      "status": "lost",
+      "steps": 111,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-062",
+      "status": "lost",
+      "steps": 145,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-063",
+      "status": "lost",
+      "steps": 100,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 0,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-064",
+      "status": "lost",
+      "steps": 115,
+      "score": 7,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-065",
+      "status": "lost",
+      "steps": 128,
+      "score": -8,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-066",
+      "status": "lost",
+      "steps": 155,
+      "score": -3,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 6,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-067",
+      "status": "won",
+      "steps": 144,
+      "score": 79,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 4,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 5,
+        "citiesConquered": 1,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-068",
+      "status": "lost",
+      "steps": 123,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-069",
+      "status": "lost",
+      "steps": 133,
+      "score": -1,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-070",
+      "status": "lost",
+      "steps": 143,
+      "score": 0,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-071",
+      "status": "lost",
+      "steps": 132,
+      "score": 9,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-072",
+      "status": "lost",
+      "steps": 165,
+      "score": 12,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-073",
+      "status": "lost",
+      "steps": 132,
+      "score": -2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-074",
+      "status": "lost",
+      "steps": 171,
+      "score": 6,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-075",
+      "status": "lost",
+      "steps": 129,
+      "score": -4,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-076",
+      "status": "lost",
+      "steps": 117,
+      "score": 12,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-077",
+      "status": "lost",
+      "steps": 137,
+      "score": 10,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-078",
+      "status": "lost",
+      "steps": 121,
+      "score": 0,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-079",
+      "status": "lost",
+      "steps": 151,
+      "score": 20,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 3,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 2,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-080",
+      "status": "lost",
+      "steps": 127,
+      "score": 11,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 2,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-081",
+      "status": "lost",
+      "steps": 177,
+      "score": 49,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 4,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 6,
+        "citiesConquered": 0,
+        "decisionsResolved": 3,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-082",
+      "status": "lost",
+      "steps": 171,
+      "score": 12,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-083",
+      "status": "lost",
+      "steps": 165,
+      "score": 6,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-084",
+      "status": "lost",
+      "steps": 123,
+      "score": 2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 2,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-085",
+      "status": "lost",
+      "steps": 114,
+      "score": 3,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-086",
+      "status": "lost",
+      "steps": 131,
+      "score": -10,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-087",
+      "status": "lost",
+      "steps": 128,
+      "score": -2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-088",
+      "status": "lost",
+      "steps": 118,
+      "score": -6,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-089",
+      "status": "lost",
+      "steps": 106,
+      "score": 1,
+      "coverage": {
+        "tilesExplored": 2,
+        "combatsStarted": 1,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-090",
+      "status": "lost",
+      "steps": 158,
+      "score": 14,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 5,
+        "combatsWon": 3,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-091",
+      "status": "lost",
+      "steps": 145,
+      "score": -3,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 5,
+        "combatsWon": 0,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-092",
+      "status": "lost",
+      "steps": 138,
+      "score": 5,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 2,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-093",
+      "status": "lost",
+      "steps": 177,
+      "score": 6,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 5,
+        "combatsWon": 2,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 3,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-094",
+      "status": "lost",
+      "steps": 133,
+      "score": -1,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 1,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-095",
+      "status": "lost",
+      "steps": 142,
+      "score": 8,
+      "coverage": {
+        "tilesExplored": 3,
+        "combatsStarted": 3,
+        "combatsWon": 1,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 2,
+        "citiesConquered": 0,
+        "decisionsResolved": 1,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-096",
+      "status": "lost",
+      "steps": 186,
+      "score": 31,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 6,
+        "combatsWon": 4,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 5,
+        "citiesConquered": 0,
+        "decisionsResolved": 3,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-097",
+      "status": "lost",
+      "steps": 127,
+      "score": 4,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 3,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-098",
+      "status": "lost",
+      "steps": 150,
+      "score": -9,
+      "coverage": {
+        "tilesExplored": 6,
+        "combatsStarted": 4,
+        "combatsWon": 1,
+        "marketCardsBought": 0,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    },
+    {
+      "seed": "solver-acceptance-099",
+      "status": "lost",
+      "steps": 157,
+      "score": -2,
+      "coverage": {
+        "tilesExplored": 5,
+        "combatsStarted": 4,
+        "combatsWon": 0,
+        "marketCardsBought": 1,
+        "unitsRecruited": 1,
+        "skillsUsed": 0,
+        "citiesConquered": 0,
+        "decisionsResolved": 0,
+        "saveRestores": 0
+      },
+      "reachedStepLimit": false,
+      "illegalCommands": []
+    }
+  ]
+}

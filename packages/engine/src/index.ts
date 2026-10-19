@@ -1,0 +1,11 @@
+export { createGame } from './create-game';
+export { executeIntent, getLegalIntents, projectView } from './engine';
+export { coordKey, neighbors, hexDistance, areAdjacent, isCompleteSevenHexTile, terrainCost, axialToPixel } from './hex';
+export { createRngState, nextRandom, shuffleWithState } from './rng';
+export { evaluateEffect } from './effect-dsl';
+export type { EffectContext, EffectEvaluation } from './effect-dsl';
+export { assertInvariants, resourceTotals, stateHash } from './state-utils';
+export { createHistory, recordSuccessfulCommand, undoHistory } from './history';
+export type { GameHistory, HistorySnapshot } from './history';
+export type * from './types';
+export * from './conquest/index';

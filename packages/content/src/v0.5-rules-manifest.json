@@ -1,0 +1,3099 @@
+{
+  "id": "core.rules-fidelity-v0.5",
+  "version": "0.5.0",
+  "requires": [
+    "core.core-complete-v0.3"
+  ],
+  "conflicts": [],
+  "cardRules": [
+    {
+      "id": "core.card.advanced.fire-bolt",
+      "sourceRef": "TTS 878d80 / card 65",
+      "basicText": "Gain a red crystal to your Inventory.",
+      "strongText": "Ranged Fire Attack 3.",
+      "basicEffect": {
+        "type": "gain-crystal",
+        "color": "red",
+        "amount": 1
+      },
+      "strongEffect": {
+        "resource": "attack",
+        "amount": 3,
+        "attackKind": "ranged",
+        "element": "fire"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.ice-bolt",
+      "sourceRef": "TTS 878d81 / card 66",
+      "basicText": "Gain a blue crystal to your Inventory.",
+      "strongText": "Ranged Ice Attack 3.",
+      "basicEffect": {
+        "type": "gain-crystal",
+        "color": "blue",
+        "amount": 1
+      },
+      "strongEffect": {
+        "resource": "attack",
+        "amount": 3,
+        "attackKind": "ranged",
+        "element": "ice"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.swift-bolt",
+      "sourceRef": "TTS 878d82 / card 67",
+      "basicText": "Gain a white crystal to your Inventory.",
+      "strongText": "Ranged Attack 4.",
+      "basicEffect": {
+        "type": "gain-crystal",
+        "color": "white",
+        "amount": 1
+      },
+      "strongEffect": {
+        "resource": "attack",
+        "amount": 4,
+        "attackKind": "ranged"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.crushing-bolt",
+      "sourceRef": "TTS 878d83 / card 68",
+      "basicText": "Gain a green crystal to your Inventory.",
+      "strongText": "Siege Attack 3.",
+      "basicEffect": {
+        "type": "gain-crystal",
+        "color": "green",
+        "amount": 1
+      },
+      "strongEffect": {
+        "resource": "attack",
+        "amount": 3,
+        "attackKind": "siege"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.blood-rage",
+      "sourceRef": "TTS 878d84 / card 69",
+      "basicText": "Attack 2. You can take a Wound to increase this to Attack 5.",
+      "strongText": "Attack 4. You can take a Wound to increase this to Attack 9.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Attack 2",
+          "Take a Wound: Attack 5"
+        ],
+        "options": [
+          {
+            "resource": "attack",
+            "amount": 2
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "take-wound",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Attack 4",
+          "Take a Wound: Attack 9"
+        ],
+        "options": [
+          {
+            "resource": "attack",
+            "amount": 4
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "take-wound",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 9
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.ice-shield",
+      "sourceRef": "TTS 878d85 / card 70",
+      "basicText": "Ice Block 3.",
+      "strongText": "Ice Block 3. Reduce the Armor of one enemy blocked this way by 3; not below 1.",
+      "basicEffect": {
+        "resource": "block",
+        "amount": 3,
+        "element": "ice"
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "block",
+            "amount": 3,
+            "element": "ice"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -3,
+            "expires": "end-combat"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.agility",
+      "sourceRef": "TTS 878d92 / card 71",
+      "basicText": "Move 2. During combat this turn, spend Move points for Attack 1 each.",
+      "strongText": "Move 4. During combat, spend Move for Attack or Ranged Attack.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "type": "special",
+            "rule": "combat-move-to-attack"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 4
+          },
+          {
+            "type": "special",
+            "rule": "combat-move-to-ranged-attack"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.refreshing-walk",
+      "sourceRef": "TTS 33bc9b / card 72",
+      "basicText": "Move 2 and Heal 1; during combat Move 2 only.",
+      "strongText": "Move 4 and Heal 2; during combat Move 4 only.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "refreshing-walk-basic"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "refreshing-walk-strong"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.intimidate",
+      "sourceRef": "TTS 878d86 / card 73",
+      "basicText": "Influence 4 or Attack 3 and Reputation -1.",
+      "strongText": "Influence 8 or Attack 7 and Reputation -2.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Influence 4",
+          "Attack 3, Reputation -1"
+        ],
+        "options": [
+          {
+            "resource": "influence",
+            "amount": 4
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "type": "adjust-track",
+                "track": "reputation",
+                "amount": -1
+              }
+            ]
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Influence 8",
+          "Attack 7, Reputation -2"
+        ],
+        "options": [
+          {
+            "resource": "influence",
+            "amount": 8
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "attack",
+                "amount": 7
+              },
+              {
+                "type": "adjust-track",
+                "track": "reputation",
+                "amount": -2
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.frost-bridge",
+      "sourceRef": "TTS 878d87 / card 74",
+      "basicText": "Move 2. Swamps cost 1 this turn.",
+      "strongText": "Move 4. Travel through lakes; lakes and swamps cost 1 this turn.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "wasteland"
+            ],
+            "mode": "set",
+            "amount": 1,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 4
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "wasteland",
+              "lake"
+            ],
+            "mode": "set",
+            "amount": 1,
+            "allowLake": true,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.song-of-wind",
+      "sourceRef": "TTS 878d88 / card 75",
+      "basicText": "Move 2. Plains, deserts and wastelands cost 1 less, minimum 0.",
+      "strongText": "Move 2. Those terrains cost 2 less; optionally pay blue mana to cross lakes for 0.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "plains",
+              "desert",
+              "wasteland"
+            ],
+            "mode": "reduce",
+            "amount": 1,
+            "minimum": 0,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "plains",
+              "desert",
+              "wasteland"
+            ],
+            "mode": "reduce",
+            "amount": 2,
+            "minimum": 0,
+            "expires": "end-turn"
+          },
+          {
+            "type": "special",
+            "rule": "pay-blue-for-free-lakes"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.pathfinding",
+      "sourceRef": "TTS 00c614 / card 76",
+      "basicText": "Move 2. All terrain costs reduced by 1, minimum 2.",
+      "strongText": "Move 4. All terrain costs become 2 this turn.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "plains",
+              "forest",
+              "hills",
+              "desert",
+              "wasteland"
+            ],
+            "mode": "reduce",
+            "amount": 1,
+            "minimum": 2,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "move",
+            "amount": 4
+          },
+          {
+            "type": "terrain-cost",
+            "terrains": [
+              "plains",
+              "forest",
+              "hills",
+              "desert",
+              "wasteland"
+            ],
+            "mode": "set",
+            "amount": 2,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.blood-ritual",
+      "sourceRef": "TTS 8eccb3 / card 77",
+      "basicText": "Take a Wound. Gain a red crystal and a mana token of any color.",
+      "strongText": "Take a Wound. Gain three mana tokens; optionally convert basic mana to a crystal.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "take-wound",
+            "amount": 1
+          },
+          {
+            "type": "gain-crystal",
+            "color": "red",
+            "amount": 1
+          },
+          {
+            "type": "special",
+            "rule": "choose-one-mana"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "take-wound",
+            "amount": 1
+          },
+          {
+            "type": "gain-mana",
+            "color": "red",
+            "amount": 3
+          },
+          {
+            "type": "special",
+            "rule": "choose-mana-colors-and-optional-crystal"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.pure-magic",
+      "sourceRef": "TTS 878d89 / card 78",
+      "basicText": "Pay a basic mana: green Move 4, white Influence 4, blue Block 4, red Attack 4.",
+      "strongText": "Pay a basic mana: green Move 7, white Influence 7, blue Block 7, red Attack 7.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Green: Move 4",
+          "White: Influence 4",
+          "Blue: Block 4",
+          "Red: Attack 4"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "green",
+                "amount": 1
+              },
+              {
+                "resource": "move",
+                "amount": 4
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "white",
+                "amount": 1
+              },
+              {
+                "resource": "influence",
+                "amount": 4
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "blue",
+                "amount": 1
+              },
+              {
+                "resource": "block",
+                "amount": 4
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "red",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 4
+              }
+            ]
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Green: Move 7",
+          "White: Influence 7",
+          "Blue: Block 7",
+          "Red: Attack 7"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "green",
+                "amount": 1
+              },
+              {
+                "resource": "move",
+                "amount": 7
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "white",
+                "amount": 1
+              },
+              {
+                "resource": "influence",
+                "amount": 7
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "blue",
+                "amount": 1
+              },
+              {
+                "resource": "block",
+                "amount": 7
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "red",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 7
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.heroic-tale",
+      "sourceRef": "TTS 878d90 / card 79",
+      "basicText": "Influence 3. Reputation +1 for each Unit recruited this turn.",
+      "strongText": "Influence 6. Fame +1 and Reputation +1 per Unit recruited this turn.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "influence",
+            "amount": 3
+          },
+          {
+            "type": "special",
+            "rule": "recruit-reputation-bonus"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "influence",
+            "amount": 6
+          },
+          {
+            "type": "special",
+            "rule": "recruit-fame-reputation-bonus"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.advanced.regeneration",
+      "sourceRef": "TTS 878d91 / card 80",
+      "basicText": "Heal 1. Ready a Level I or II Unit.",
+      "strongText": "Heal 2. Ready a Level I, II or III Unit.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 1
+          },
+          {
+            "type": "refresh-unit",
+            "maxLevel": 2
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 2
+          },
+          {
+            "type": "refresh-unit",
+            "maxLevel": 3
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.demolish",
+      "sourceRef": "TTS spell card 105",
+      "basicText": "Ignore site fortifications this turn. Enemies get Armor -1, minimum 1.",
+      "strongText": "In Attack phase destroy target enemy; other enemies get Armor -1.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "remove-fortification",
+            "scope": "all",
+            "expires": "end-turn"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -1,
+            "scope": "all",
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "destroy",
+            "expires": "end-combat"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -1,
+            "scope": "all",
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.mana-bolt",
+      "sourceRef": "TTS spell card 98",
+      "basicText": "Pay mana: blue Ice Attack 8; red Cold Fire 7; white Ranged Ice 6; green Siege Ice 5.",
+      "strongText": "Pay mana: blue Ice 11; red Cold Fire 10; white Ranged Ice 9; green Siege Ice 8.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Ice 8",
+          "Cold Fire 7",
+          "Ranged Ice 6",
+          "Siege Ice 5"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "blue",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 8,
+                "element": "ice"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "red",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 7,
+                "element": "cold-fire"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "white",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 6,
+                "attackKind": "ranged",
+                "element": "ice"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "green",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 5,
+                "attackKind": "siege",
+                "element": "ice"
+              }
+            ]
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Ice 11",
+          "Cold Fire 10",
+          "Ranged Ice 9",
+          "Siege Ice 8"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "blue",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 11,
+                "element": "ice"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "red",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 10,
+                "element": "cold-fire"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "white",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 9,
+                "attackKind": "ranged",
+                "element": "ice"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "spend-mana",
+                "color": "green",
+                "amount": 1
+              },
+              {
+                "resource": "attack",
+                "amount": 8,
+                "attackKind": "siege",
+                "element": "ice"
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.expose",
+      "sourceRef": "TTS spell card 95",
+      "basicText": "Target enemy loses fortifications and resistances this combat. Ranged Attack 2.",
+      "strongText": "All enemies lose fortifications or all resistances. Ranged Attack 3.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "remove-fortification",
+            "expires": "end-combat"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "remove-resistance",
+            "expires": "end-combat"
+          },
+          {
+            "resource": "attack",
+            "amount": 2,
+            "attackKind": "ranged"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Remove all fortifications",
+          "Remove all resistances"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "modify-enemy",
+                "modifier": "remove-fortification",
+                "scope": "all",
+                "expires": "end-combat"
+              },
+              {
+                "resource": "attack",
+                "amount": 3,
+                "attackKind": "ranged"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "modify-enemy",
+                "modifier": "remove-resistance",
+                "scope": "all",
+                "expires": "end-combat"
+              },
+              {
+                "resource": "attack",
+                "amount": 3,
+                "attackKind": "ranged"
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.restoration",
+      "sourceRef": "TTS spell card 104",
+      "basicText": "Heal 3; in a forest Heal 5.",
+      "strongText": "Heal 3/5 and Ready up to 3/5 levels of Units.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 3
+          },
+          {
+            "type": "special",
+            "rule": "forest-heal-bonus"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 3
+          },
+          {
+            "type": "refresh-unit",
+            "totalLevels": 3
+          },
+          {
+            "type": "special",
+            "rule": "forest-heal-ready-bonus"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.flame-wall",
+      "sourceRef": "TTS spell card 97",
+      "basicText": "Fire Attack 5 or Fire Block 7.",
+      "strongText": "Fire Attack 5 or Fire Block 7, increased by 2 per enemy faced.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Fire Attack 5",
+          "Fire Block 7"
+        ],
+        "options": [
+          {
+            "resource": "attack",
+            "amount": 5,
+            "element": "fire"
+          },
+          {
+            "resource": "block",
+            "amount": 7,
+            "element": "fire"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Scaling Fire Attack",
+          "Scaling Fire Block"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "attack",
+                "amount": 5,
+                "element": "fire"
+              },
+              {
+                "type": "special",
+                "rule": "plus-two-per-enemy"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "block",
+                "amount": 7,
+                "element": "fire"
+              },
+              {
+                "type": "special",
+                "rule": "plus-two-per-enemy"
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.space-bending",
+      "sourceRef": "TTS spell card 106",
+      "basicText": "Treat spaces two spaces away as adjacent for movement/exploration; do not provoke rampaging enemies.",
+      "strongText": "Set this aside, return played cards to hand, skip drawing, and immediately take another turn.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "space-bending-movement"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "time-bending-extra-turn"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.whirlwind",
+      "sourceRef": "TTS spell card 99",
+      "basicText": "Target enemy does not attack this combat.",
+      "strongText": "In Attack phase destroy target enemy.",
+      "basicEffect": {
+        "type": "modify-enemy",
+        "modifier": "skip-attack",
+        "expires": "end-combat"
+      },
+      "strongEffect": {
+        "type": "modify-enemy",
+        "modifier": "destroy",
+        "expires": "end-combat"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.meditation",
+      "sourceRef": "TTS spell card 108",
+      "basicText": "Randomly return two discard cards to deck top/bottom; next draw hand limit +2.",
+      "strongText": "As basic, but choose the two cards.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "create-lasting-effect",
+            "effect": "hand-limit",
+            "amount": 2,
+            "expires": "start-next-turn"
+          },
+          {
+            "type": "special",
+            "rule": "return-random-discard-cards"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "create-lasting-effect",
+            "effect": "hand-limit",
+            "amount": 2,
+            "expires": "start-next-turn"
+          },
+          {
+            "type": "special",
+            "rule": "return-chosen-discard-cards",
+            "target": "hand-card"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.fireball",
+      "sourceRef": "TTS spell card 93",
+      "basicText": "Ranged Fire Attack 5.",
+      "strongText": "Take a Wound. Siege Fire Attack 8.",
+      "basicEffect": {
+        "resource": "attack",
+        "amount": 5,
+        "attackKind": "ranged",
+        "element": "fire"
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "take-wound",
+            "amount": 1
+          },
+          {
+            "resource": "attack",
+            "amount": 8,
+            "attackKind": "siege",
+            "element": "fire"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.snowstorm",
+      "sourceRef": "TTS spell card 94",
+      "basicText": "Ranged Ice Attack 5.",
+      "strongText": "Take a Wound. Siege Ice Attack 8.",
+      "basicEffect": {
+        "resource": "attack",
+        "amount": 5,
+        "attackKind": "ranged",
+        "element": "ice"
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "take-wound",
+            "amount": 1
+          },
+          {
+            "resource": "attack",
+            "amount": 8,
+            "attackKind": "siege",
+            "element": "ice"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.wings-of-wind",
+      "sourceRef": "TTS spell card 103",
+      "basicText": "Spend 1-5 Move to move that many revealed spaces, end safe, no rampaging provocation.",
+      "strongText": "Target enemy does not attack; pay increasing Move for additional targets.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "wings-of-wind-movement"
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "skip-attack",
+            "expires": "end-combat"
+          },
+          {
+            "type": "special",
+            "rule": "additional-skip-targets-for-move"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.tremor",
+      "sourceRef": "TTS spell card 96",
+      "basicText": "Target Armor -3 or all enemies Armor -2; minimum 1.",
+      "strongText": "As basic; doubled against fortified enemies.",
+      "basicEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Target Armor -3",
+          "All Armor -2"
+        ],
+        "options": [
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -3,
+            "expires": "end-combat"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -2,
+            "scope": "all",
+            "expires": "end-combat"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "choose-one",
+        "labels": [
+          "Target Armor -6 if fortified",
+          "All Armor -4 if fortified"
+        ],
+        "options": [
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "modify-enemy",
+                "modifier": "armor",
+                "amount": -3,
+                "expires": "end-combat"
+              },
+              {
+                "type": "special",
+                "rule": "double-armor-reduction-if-fortified"
+              }
+            ]
+          },
+          {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "modify-enemy",
+                "modifier": "armor",
+                "amount": -2,
+                "scope": "all",
+                "expires": "end-combat"
+              },
+              {
+                "type": "special",
+                "rule": "double-armor-reduction-if-fortified"
+              }
+            ]
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.burning-shield",
+      "sourceRef": "TTS spell card 101",
+      "basicText": "Fire Block 4; if successful, Fire Attack 4 in Attack phase.",
+      "strongText": "Fire Block 4; if successful, destroy the blocked enemy.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "block",
+            "amount": 4,
+            "element": "fire"
+          },
+          {
+            "type": "special",
+            "rule": "successful-block-fire-attack"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "block",
+            "amount": 4,
+            "element": "fire"
+          },
+          {
+            "type": "special",
+            "rule": "successful-block-destroy"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.chill",
+      "sourceRef": "TTS spell card 102",
+      "basicText": "Target enemy does not attack; if Fire Resistant, it loses that resistance this turn.",
+      "strongText": "Target does not attack and gets Armor -4, minimum 1.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "skip-attack",
+            "expires": "end-combat"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "remove-resistance",
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "modify-enemy",
+            "modifier": "skip-attack",
+            "expires": "end-combat"
+          },
+          {
+            "type": "modify-enemy",
+            "modifier": "armor",
+            "amount": -4,
+            "expires": "end-turn"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.call-to-arms",
+      "sourceRef": "TTS spell card 107",
+      "basicText": "Use one ability of a Unit in the offer this turn; it cannot take damage.",
+      "strongText": "Recruit one Unit from the offer for free.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "use-unit-offer-ability"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "recruit-unit-free"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.spell.underground-travel",
+      "sourceRef": "TTS spell card 100",
+      "basicText": "Move through up to 3 revealed non-swamp/non-lake spaces and end safe without provoking.",
+      "strongText": "As basic, but end at a fortified site and ignore its fortification.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "underground-travel"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "underground-assault"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.banner",
+      "sourceRef": "TTS artifact card 113",
+      "basicText": "Assign to a Unit: Armor +1, Attack/Block +1, Fame +1 when it attacks or blocks.",
+      "strongText": "All Units get Armor and Attack/Block +1 this turn; Fame per participating Unit.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "assign-banner-of-glory",
+        "target": "unit"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "all-units-glory-bonus"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.banner-fear",
+      "sourceRef": "TTS artifact card 114",
+      "basicText": "Assign to a Unit; spend it to cancel one enemy attack and gain Fame 1.",
+      "strongText": "Up to three enemies do not attack this combat.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "assign-banner-of-fear",
+        "target": "unit"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "skip-up-to-three-enemies"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.banner-protection",
+      "sourceRef": "TTS artifact card 115",
+      "basicText": "Assign to a Unit: Armor +1 and Fire/Ice Resistance.",
+      "strongText": "At turn end, throw away all Wounds received this turn.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "assign-banner-of-protection",
+        "target": "unit"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "remove-turn-wounds"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.banner-courage",
+      "sourceRef": "TTS artifact card 116",
+      "basicText": "Assign to a Unit; once per Round ready that Unit outside combat.",
+      "strongText": "Outside combat, Ready all Units.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "assign-banner-of-courage",
+        "target": "unit"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "ready-all-units"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.ring",
+      "sourceRef": "TTS artifact card 117",
+      "basicText": "Gain red mana and red crystal. Fame +1.",
+      "strongText": "Endless red/black mana this turn; Fame for each red Spell.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "red",
+            "amount": 1
+          },
+          {
+            "type": "gain-crystal",
+            "color": "red",
+            "amount": 1
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 1
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "endless-red-black-mana"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.sapphire-ring",
+      "sourceRef": "TTS artifact card 118",
+      "basicText": "Gain blue mana and blue crystal. Fame +1.",
+      "strongText": "Endless blue/black mana this turn; Fame for each blue Spell.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "blue",
+            "amount": 1
+          },
+          {
+            "type": "gain-crystal",
+            "color": "blue",
+            "amount": 1
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 1
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "endless-blue-black-mana"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.diamond-ring",
+      "sourceRef": "TTS artifact card 119",
+      "basicText": "Gain white mana and white crystal. Fame +1.",
+      "strongText": "Endless white/black mana this turn; Fame for each white Spell.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "white",
+            "amount": 1
+          },
+          {
+            "type": "gain-crystal",
+            "color": "white",
+            "amount": 1
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 1
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "endless-white-black-mana"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.emerald-ring",
+      "sourceRef": "TTS artifact card 120",
+      "basicText": "Gain green mana and green crystal. Fame +1.",
+      "strongText": "Endless green/black mana this turn; Fame for each green Spell.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "green",
+            "amount": 1
+          },
+          {
+            "type": "gain-crystal",
+            "color": "green",
+            "amount": 1
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 1
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "endless-green-black-mana"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.sword",
+      "sourceRef": "TTS artifact card 121",
+      "basicText": "Discard cards for Attack 3 each; Fame +1 per defeated enemy.",
+      "strongText": "Double physical attacks; enemies lose physical resistance; Fame per defeated enemy.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "discard-cards-for-attack",
+        "target": "hand-card"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "double-physical-attacks"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.horn",
+      "sourceRef": "TTS artifact card 122",
+      "basicText": "Siege Attack 5; roll a die and take a Wound on black/red.",
+      "strongText": "Siege Attack 5; add up to 5, rolling for a Wound per added point.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "attack",
+            "amount": 5,
+            "attackKind": "siege"
+          },
+          {
+            "type": "special",
+            "rule": "risk-wound-die"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "attack",
+            "amount": 10,
+            "attackKind": "siege"
+          },
+          {
+            "type": "special",
+            "rule": "risk-wound-dice"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.endless-gold",
+      "sourceRef": "TTS artifact card 123",
+      "basicText": "Influence 4, Fame +2.",
+      "strongText": "Influence 9, Fame +3.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "influence",
+            "amount": 4
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 2
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "influence",
+            "amount": 9
+          },
+          {
+            "type": "adjust-track",
+            "track": "fame",
+            "amount": 3
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.gem-pouch",
+      "sourceRef": "TTS artifact card 124",
+      "basicText": "Roll twice; gain crystals for basic/gold results, Fame for black.",
+      "strongText": "Gain one mana token of each basic color and one gold/day or black/night.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "roll-two-crystals"
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "red",
+            "amount": 1
+          },
+          {
+            "type": "gain-mana",
+            "color": "blue",
+            "amount": 1
+          },
+          {
+            "type": "gain-mana",
+            "color": "white",
+            "amount": 1
+          },
+          {
+            "type": "gain-mana",
+            "color": "green",
+            "amount": 1
+          },
+          {
+            "type": "conditional",
+            "when": "day",
+            "then": {
+              "type": "gain-mana",
+              "color": "gold",
+              "amount": 1
+            },
+            "otherwise": {
+              "type": "gain-mana",
+              "color": "black",
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.golden-grail",
+      "sourceRef": "TTS artifact card 125",
+      "basicText": "Heal 2; Fame +1 per point of this Healing spent.",
+      "strongText": "Heal 6; draw a card whenever healing a Wound from hand this turn.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 2
+          },
+          {
+            "type": "special",
+            "rule": "fame-per-heal-spent"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "resource": "heal",
+            "amount": 6
+          },
+          {
+            "type": "special",
+            "rule": "draw-per-hand-wound-healed"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.book",
+      "sourceRef": "TTS artifact card 126",
+      "basicText": "Throw away an Action; gain same-color Advanced Action to hand.",
+      "strongText": "Throw away an Action; gain same-color Spell to hand and matching crystal.",
+      "basicEffect": {
+        "type": "special",
+        "rule": "exchange-action-for-advanced",
+        "target": "hand-card"
+      },
+      "strongEffect": {
+        "type": "special",
+        "rule": "exchange-action-for-spell",
+        "target": "hand-card"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.amulet",
+      "sourceRef": "TTS artifact card 127",
+      "basicText": "Gain gold mana; at Night enable gold and reduce forests to 3 with Day revealing.",
+      "strongText": "As basic, but gain three gold mana.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "gold",
+            "amount": 1
+          },
+          {
+            "type": "special",
+            "rule": "sun-amulet-night-rules"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "gold",
+            "amount": 3
+          },
+          {
+            "type": "special",
+            "rule": "sun-amulet-night-rules"
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.card.artifact.amulet-darkness",
+      "sourceRef": "TTS artifact card 128",
+      "basicText": "Gain any mana; at Day reduce deserts to 3 and enable black mana.",
+      "strongText": "As basic, but gain three mana tokens of any colors.",
+      "basicEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "black",
+            "amount": 1
+          },
+          {
+            "type": "special",
+            "rule": "darkness-amulet-day-rules"
+          }
+        ]
+      },
+      "strongEffect": {
+        "type": "sequence",
+        "effects": [
+          {
+            "type": "gain-mana",
+            "color": "black",
+            "amount": 3
+          },
+          {
+            "type": "special",
+            "rule": "darkness-amulet-day-rules"
+          }
+        ]
+      },
+      "implementation": "full"
+    }
+  ],
+  "unitRules": [
+    {
+      "id": "core.unit.regular.foresters",
+      "sourceRef": "TTS regular card 0",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "林地行进",
+          "text": "Move 2; forests, hills and swamps cost 1 less, minimum 0.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "move",
+                "amount": 2
+              },
+              {
+                "type": "terrain-cost",
+                "terrains": [
+                  "forest",
+                  "hills",
+                  "wasteland"
+                ],
+                "mode": "reduce",
+                "amount": 1,
+                "minimum": 0,
+                "expires": "end-turn"
+              }
+            ]
+          }
+        },
+        {
+          "label": "格挡",
+          "text": "Block 3.",
+          "effect": {
+            "resource": "block",
+            "amount": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.golems",
+      "sourceRef": "TTS regular card 1",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 2.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 2",
+              "Block 2"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 2
+              },
+              {
+                "resource": "block",
+                "amount": 2
+              }
+            ]
+          }
+        },
+        {
+          "label": "元素格挡",
+          "text": "Fire Block 4 or Ice Block 4.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Fire Block 4",
+              "Ice Block 4"
+            ],
+            "options": [
+              {
+                "resource": "block",
+                "amount": 4,
+                "element": "fire"
+              },
+              {
+                "resource": "block",
+                "amount": 4,
+                "element": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.herbalists",
+      "sourceRef": "TTS regular card 2",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "治疗",
+          "text": "Heal 2.",
+          "effect": {
+            "resource": "heal",
+            "amount": 2
+          }
+        },
+        {
+          "label": "整备",
+          "text": "Ready a Level I or II Unit.",
+          "effect": {
+            "type": "refresh-unit",
+            "maxLevel": 2
+          }
+        },
+        {
+          "label": "绿法力",
+          "text": "Gain a green mana token.",
+          "effect": {
+            "type": "gain-mana",
+            "color": "green",
+            "amount": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.illusionists",
+      "sourceRef": "TTS regular card 3",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "影响",
+          "text": "Influence 4.",
+          "effect": {
+            "resource": "influence",
+            "amount": 4
+          }
+        },
+        {
+          "label": "幻象",
+          "text": "Target unfortified enemy does not attack.",
+          "effect": {
+            "type": "modify-enemy",
+            "modifier": "skip-attack",
+            "expires": "end-combat"
+          }
+        },
+        {
+          "label": "白水晶",
+          "text": "Gain a white crystal.",
+          "effect": {
+            "type": "gain-crystal",
+            "color": "white",
+            "amount": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.northern-monks",
+      "sourceRef": "TTS regular card 5",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "冰攻防",
+          "text": "Ice Attack or Ice Block 4.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Ice Attack 4",
+              "Ice Block 4"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 4,
+                "element": "ice"
+              },
+              {
+                "resource": "block",
+                "amount": 4,
+                "element": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.peasants",
+      "sourceRef": "TTS regular card 6",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻击",
+          "text": "Attack 2.",
+          "effect": {
+            "resource": "attack",
+            "amount": 2
+          }
+        },
+        {
+          "label": "格挡",
+          "text": "Block 2.",
+          "effect": {
+            "resource": "block",
+            "amount": 2
+          }
+        },
+        {
+          "label": "影响",
+          "text": "Influence 2.",
+          "effect": {
+            "resource": "influence",
+            "amount": 2
+          }
+        },
+        {
+          "label": "移动",
+          "text": "Move 2.",
+          "effect": {
+            "resource": "move",
+            "amount": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.red-cape",
+      "sourceRef": "TTS regular card 7",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "火攻防",
+          "text": "Fire Attack or Fire Block 4.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Fire Attack 4",
+              "Fire Block 4"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 4,
+                "element": "fire"
+              },
+              {
+                "resource": "block",
+                "amount": 4,
+                "element": "fire"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.savages",
+      "sourceRef": "TTS regular card 8",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "攻城",
+          "text": "Siege Attack 4.",
+          "effect": {
+            "resource": "attack",
+            "amount": 4,
+            "attackKind": "siege"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.crossbowmen",
+      "sourceRef": "TTS regular card 12",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "远程",
+          "text": "Ranged Attack 2.",
+          "effect": {
+            "resource": "attack",
+            "amount": 2,
+            "attackKind": "ranged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.guardsmen",
+      "sourceRef": "TTS regular card 13",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻击",
+          "text": "Attack 2.",
+          "effect": {
+            "resource": "attack",
+            "amount": 2
+          }
+        },
+        {
+          "label": "格挡",
+          "text": "Block 4; counts twice against Swiftness.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "resource": "block",
+                "amount": 4
+              },
+              {
+                "type": "special",
+                "rule": "double-against-swiftness"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.regular.swordsmen",
+      "sourceRef": "TTS regular card 14",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "全力",
+          "text": "Attack or Block 6; this Unit becomes Wounded.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "choose-one",
+                "labels": [
+                  "Attack 6",
+                  "Block 6"
+                ],
+                "options": [
+                  {
+                    "resource": "attack",
+                    "amount": 6
+                  },
+                  {
+                    "resource": "block",
+                    "amount": 6
+                  }
+                ]
+              },
+              {
+                "type": "special",
+                "rule": "wound-activating-unit"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.altem-guards",
+      "sourceRef": "TTS elite card 0",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻击",
+          "text": "Attack 5.",
+          "effect": {
+            "resource": "attack",
+            "amount": 5
+          }
+        },
+        {
+          "label": "格挡",
+          "text": "Block 8; counts twice against Swiftness.",
+          "effect": {
+            "resource": "block",
+            "amount": 8
+          }
+        },
+        {
+          "label": "全抗",
+          "text": "All Units gain all resistances this turn.",
+          "effect": {
+            "type": "special",
+            "rule": "all-units-all-resistances"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.altem-mages",
+      "sourceRef": "TTS elite card 1",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "法力",
+          "text": "Gain two mana tokens of any colors.",
+          "effect": {
+            "type": "special",
+            "rule": "choose-two-mana"
+          }
+        },
+        {
+          "label": "冷焰攻防",
+          "text": "Cold Fire Attack or Block 5; pay red/blue to increase.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Cold Fire Attack 5",
+              "Cold Fire Block 5"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 5,
+                "element": "cold-fire"
+              },
+              {
+                "resource": "block",
+                "amount": 5,
+                "element": "cold-fire"
+              }
+            ]
+          }
+        },
+        {
+          "label": "转化",
+          "text": "All attacks become Cold Fire or Siege this combat.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "全部攻击转为冷焰",
+              "全部远程攻击转为攻城"
+            ],
+            "options": [
+              {
+                "type": "special",
+                "rule": "convert-all-attacks"
+              },
+              {
+                "type": "special",
+                "rule": "convert-all-attacks"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.amotep-freezers",
+      "sourceRef": "TTS elite card 2",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 5.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 5",
+              "Block 5"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 5
+              },
+              {
+                "resource": "block",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "冻结",
+          "text": "Target enemy does not attack and gets Armor -3.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "modify-enemy",
+                "modifier": "skip-attack",
+                "expires": "end-combat"
+              },
+              {
+                "type": "modify-enemy",
+                "modifier": "armor",
+                "amount": -3,
+                "expires": "end-combat"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.amotep-gunners",
+      "sourceRef": "TTS elite card 3",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 5.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 5",
+              "Block 5"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 5
+              },
+              {
+                "resource": "block",
+                "amount": 5
+              }
+            ]
+          }
+        },
+        {
+          "label": "远程火焰",
+          "text": "Ranged Fire Attack 6.",
+          "effect": {
+            "resource": "attack",
+            "amount": 6,
+            "attackKind": "ranged",
+            "element": "fire"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.catapults",
+      "sourceRef": "TTS elite card 4",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻城",
+          "text": "Siege Attack 3.",
+          "effect": {
+            "resource": "attack",
+            "amount": 3,
+            "attackKind": "siege"
+          }
+        },
+        {
+          "label": "火焰攻城",
+          "text": "Siege Fire Attack 5.",
+          "effect": {
+            "resource": "attack",
+            "amount": 5,
+            "attackKind": "siege",
+            "element": "fire"
+          }
+        },
+        {
+          "label": "寒冰攻城",
+          "text": "Siege Ice Attack 5.",
+          "effect": {
+            "resource": "attack",
+            "amount": 5,
+            "attackKind": "siege",
+            "element": "ice"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.fire-golems",
+      "sourceRef": "TTS elite card 6",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "远程火焰",
+          "text": "Ranged Fire Attack 4.",
+          "effect": {
+            "resource": "attack",
+            "amount": 4,
+            "attackKind": "ranged",
+            "element": "fire"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.fire-mages",
+      "sourceRef": "TTS elite card 7",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "远程火焰",
+          "text": "Ranged Fire Attack 3.",
+          "effect": {
+            "resource": "attack",
+            "amount": 3,
+            "attackKind": "ranged",
+            "element": "fire"
+          }
+        },
+        {
+          "label": "火攻防",
+          "text": "Fire Attack or Fire Block 6.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Fire Attack 6",
+              "Fire Block 6"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 6,
+                "element": "fire"
+              },
+              {
+                "resource": "block",
+                "amount": 6,
+                "element": "fire"
+              }
+            ]
+          }
+        },
+        {
+          "label": "红法力",
+          "text": "Gain red mana and red crystal.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "gain-mana",
+                "color": "red",
+                "amount": 1
+              },
+              {
+                "type": "gain-crystal",
+                "color": "red",
+                "amount": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.ice-golems",
+      "sourceRef": "TTS elite card 12",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "攻防",
+          "text": "Attack or Block 3.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Attack 3",
+              "Block 3"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 3
+              },
+              {
+                "resource": "block",
+                "amount": 3
+              }
+            ]
+          }
+        },
+        {
+          "label": "寒冰攻击",
+          "text": "Ice Attack 6.",
+          "effect": {
+            "resource": "attack",
+            "amount": 6,
+            "element": "ice"
+          }
+        }
+      ]
+    },
+    {
+      "id": "core.unit.elite.ice-mages",
+      "sourceRef": "TTS elite card 13",
+      "implementation": "full",
+      "abilities": [
+        {
+          "label": "冰攻防",
+          "text": "Ice Attack or Ice Block 4.",
+          "effect": {
+            "type": "choose-one",
+            "labels": [
+              "Ice Attack 4",
+              "Ice Block 4"
+            ],
+            "options": [
+              {
+                "resource": "attack",
+                "amount": 4,
+                "element": "ice"
+              },
+              {
+                "resource": "block",
+                "amount": 4,
+                "element": "ice"
+              }
+            ]
+          }
+        },
+        {
+          "label": "攻城寒冰",
+          "text": "Siege Ice Attack 4.",
+          "effect": {
+            "resource": "attack",
+            "amount": 4,
+            "attackKind": "siege",
+            "element": "ice"
+          }
+        },
+        {
+          "label": "蓝法力",
+          "text": "Gain blue mana and blue crystal.",
+          "effect": {
+            "type": "sequence",
+            "effects": [
+              {
+                "type": "gain-mana",
+                "color": "blue",
+                "amount": 1
+              },
+              {
+                "type": "gain-crystal",
+                "color": "blue",
+                "amount": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "skillRules": [
+    {
+      "id": "core.skill.tovak.cold-toughness",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得格挡 2。",
+      "effect": {
+        "resource": "block",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.battle-frenzy",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得攻击 2。",
+      "effect": {
+        "resource": "attack",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.motivation",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，抽一张牌。",
+      "effect": {
+        "type": "draw",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.resistance-break",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，使一个敌人的抗性失效。",
+      "effect": {
+        "type": "modify-enemy",
+        "modifier": "remove-resistance",
+        "expires": "end-combat"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.shield-mastery",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得格挡 3。",
+      "effect": {
+        "resource": "block",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.who-needs-magic",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得任意基础行动 2。",
+      "effect": {
+        "type": "choose-one",
+        "labels": [
+          "Move 2",
+          "Influence 2",
+          "Attack 2",
+          "Block 2"
+        ],
+        "options": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "resource": "influence",
+            "amount": 2
+          },
+          {
+            "resource": "attack",
+            "amount": 2
+          },
+          {
+            "resource": "block",
+            "amount": 2
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.double-time",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得移动 3。",
+      "effect": {
+        "resource": "move",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.night-vision",
+      "sourceRef": "Tovak skill",
+      "ruleText": "夜间获得移动 2。",
+      "effect": {
+        "type": "conditional",
+        "when": "night",
+        "then": {
+          "resource": "move",
+          "amount": 2
+        },
+        "otherwise": {
+          "type": "special",
+          "rule": "night-only"
+        }
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.tovak.renewal",
+      "sourceRef": "Tovak skill",
+      "ruleText": "本轮一次，获得治疗 1。",
+      "effect": {
+        "resource": "heal",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.power-of-pain",
+      "sourceRef": "TTS 33d341",
+      "ruleText": "每轮一次获得攻击 2。",
+      "effect": {
+        "resource": "attack",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.motivation",
+      "sourceRef": "TTS 3d8336",
+      "ruleText": "每轮一次获得治疗 1。",
+      "effect": {
+        "resource": "heal",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.dark-fire-magic",
+      "sourceRef": "TTS 0951b9",
+      "ruleText": "每轮一次获得火焰攻击 3。",
+      "effect": {
+        "resource": "attack",
+        "amount": 3,
+        "element": "fire"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.polarization",
+      "sourceRef": "TTS fe29ca",
+      "ruleText": "每轮一次获得格挡 2。",
+      "effect": {
+        "resource": "block",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.dark-paths",
+      "sourceRef": "TTS 4b997c",
+      "ruleText": "每轮一次获得移动 2。",
+      "effect": {
+        "resource": "move",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.hot-swordsmanship",
+      "sourceRef": "TTS 1906f4",
+      "ruleText": "每轮一次获得火焰攻击 2。",
+      "effect": {
+        "resource": "attack",
+        "amount": 2,
+        "element": "fire"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.invocation",
+      "sourceRef": "TTS 68568b",
+      "ruleText": "每轮一次获得影响 2。",
+      "effect": {
+        "resource": "influence",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.burning-power",
+      "sourceRef": "TTS 2f2ad9",
+      "ruleText": "每轮一次获得火焰攻击 3。",
+      "effect": {
+        "resource": "attack",
+        "amount": 3,
+        "element": "fire"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.arythea.dark-negotiation",
+      "sourceRef": "TTS 24855b",
+      "ruleText": "每轮一次获得影响 3。",
+      "effect": {
+        "resource": "influence",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.white-crystal-craft",
+      "sourceRef": "TTS 04319a",
+      "ruleText": "每轮一次获得白水晶。",
+      "effect": {
+        "type": "gain-crystal",
+        "color": "white",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.potion-making",
+      "sourceRef": "TTS 866002",
+      "ruleText": "每轮一次获得治疗 1。",
+      "effect": {
+        "resource": "heal",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.glittering-fortune",
+      "sourceRef": "TTS 8cea19",
+      "ruleText": "每轮一次获得影响 2。",
+      "effect": {
+        "resource": "influence",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.motivation",
+      "sourceRef": "TTS 171244",
+      "ruleText": "每轮一次获得移动 2。",
+      "effect": {
+        "resource": "move",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.freezing-power",
+      "sourceRef": "TTS 91bf3d",
+      "ruleText": "每轮一次获得寒冰格挡 3。",
+      "effect": {
+        "resource": "block",
+        "amount": 3,
+        "element": "ice"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.green-crystal-craft",
+      "sourceRef": "TTS 0db37a",
+      "ruleText": "每轮一次获得绿水晶。",
+      "effect": {
+        "type": "gain-crystal",
+        "color": "green",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.flight",
+      "sourceRef": "TTS 4d5351",
+      "ruleText": "每轮一次获得移动 3。",
+      "effect": {
+        "resource": "move",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.red-crystal-craft",
+      "sourceRef": "TTS 9eb4c5",
+      "ruleText": "每轮一次获得红水晶。",
+      "effect": {
+        "type": "gain-crystal",
+        "color": "red",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.goldyx.universal-power",
+      "sourceRef": "TTS 3a3f49",
+      "ruleText": "每轮一次选择一种基础资源获得 2。",
+      "effect": {
+        "type": "choose-one",
+        "labels": [
+          "Move 2",
+          "Influence 2",
+          "Attack 2",
+          "Block 2"
+        ],
+        "options": [
+          {
+            "resource": "move",
+            "amount": 2
+          },
+          {
+            "resource": "influence",
+            "amount": 2
+          },
+          {
+            "resource": "attack",
+            "amount": 2
+          },
+          {
+            "resource": "block",
+            "amount": 2
+          }
+        ]
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.leadership",
+      "sourceRef": "TTS 93c62e",
+      "ruleText": "每轮一次获得影响 3。",
+      "effect": {
+        "resource": "influence",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.whisper-in-treetops",
+      "sourceRef": "TTS e45fdf",
+      "ruleText": "每轮一次获得移动 2。",
+      "effect": {
+        "resource": "move",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.leaves-in-wind",
+      "sourceRef": "TTS b2dfce",
+      "ruleText": "每轮一次获得移动 3。",
+      "effect": {
+        "resource": "move",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.inspiration",
+      "sourceRef": "TTS 3dc067",
+      "ruleText": "每轮一次获得治疗 1。",
+      "effect": {
+        "resource": "heal",
+        "amount": 1
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.day-sharpshooting",
+      "sourceRef": "TTS 046187",
+      "ruleText": "每轮一次获得远程攻击 2。",
+      "effect": {
+        "resource": "attack",
+        "amount": 2,
+        "attackKind": "ranged"
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.motivation",
+      "sourceRef": "TTS 14399f",
+      "ruleText": "每轮一次获得移动 2。",
+      "effect": {
+        "resource": "move",
+        "amount": 2
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.bright-negotiation",
+      "sourceRef": "TTS 3f0f3b",
+      "ruleText": "每轮一次获得影响 3。",
+      "effect": {
+        "resource": "influence",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.forward-march",
+      "sourceRef": "TTS 257c0c",
+      "ruleText": "每轮一次获得移动 3。",
+      "effect": {
+        "resource": "move",
+        "amount": 3
+      },
+      "implementation": "full"
+    },
+    {
+      "id": "core.skill.norowas.bonds-of-loyalty",
+      "sourceRef": "TTS f30dd4",
+      "ruleText": "每轮一次获得影响 2。",
+      "effect": {
+        "resource": "influence",
+        "amount": 2
+      },
+      "implementation": "full"
+    }
+  ]
+}

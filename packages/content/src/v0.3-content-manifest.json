@@ -1,0 +1,136 @@
+{
+  "id": "core.core-complete-v0.3",
+  "version": "0.3.0",
+  "requires": ["core.conquest-v0.2"],
+  "conflicts": [],
+  "heroes": [
+    {
+      "id": "core.hero.tovak", "name": "Tovak", "source": "Ultimate Edition core hero", "sourceRef": "TTS bag index 38",
+      "armor": 2, "handLimit": 5, "commandSlots": 1, "assetAlias": "hero.tovak",
+      "basicDeck": ["core.card.march-1", "core.card.march-2", "core.card.concentration", "core.card.tranquility", "core.card.rage-1", "core.card.rage-2", "core.card.threaten", "core.card.hero.instinct", "core.card.swiftness-1", "core.card.swiftness-2", "core.card.promise", "core.card.mana-draw", "core.card.stamina-1", "core.card.stamina-2", "core.card.crystallize", "core.card.hero.cold-toughness"],
+      "skillIds": ["core.skill.tovak.cold-toughness", "core.skill.tovak.battle-frenzy", "core.skill.tovak.motivation", "core.skill.tovak.resistance-break", "core.skill.tovak.shield-mastery", "core.skill.tovak.who-needs-magic", "core.skill.tovak.double-time", "core.skill.tovak.night-vision", "core.skill.tovak.renewal"]
+    },
+    {
+      "id": "core.hero.arythea", "name": "Arythea", "source": "Ultimate Edition core hero", "sourceRef": "TTS bag index 35",
+      "armor": 2, "handLimit": 5, "commandSlots": 1, "assetAlias": "hero.arythea",
+      "basicDeck": ["core.card.march-1", "core.card.tranquility", "core.card.concentration", "core.card.determination-1", "core.card.crystallize", "core.card.rage-1", "core.card.swiftness-1", "core.card.stamina-1", "core.card.hero.battle-versatility", "core.card.hero.mana-pull", "core.card.promise", "core.card.march-2", "core.card.swiftness-2", "core.card.stamina-2", "core.card.threaten", "core.card.hero.improvisation"],
+      "skillIds": ["core.skill.arythea.power-of-pain", "core.skill.arythea.motivation", "core.skill.arythea.dark-fire-magic", "core.skill.arythea.polarization", "core.skill.arythea.dark-paths", "core.skill.arythea.hot-swordsmanship", "core.skill.arythea.invocation", "core.skill.arythea.burning-power", "core.skill.arythea.dark-negotiation"]
+    },
+    {
+      "id": "core.hero.goldyx", "name": "Goldyx", "source": "Ultimate Edition core hero", "sourceRef": "TTS bag index 36",
+      "armor": 2, "handLimit": 5, "commandSlots": 1, "assetAlias": "hero.goldyx",
+      "basicDeck": ["core.card.hero.will-focus", "core.card.march-1", "core.card.march-2", "core.card.tranquility", "core.card.mana-draw", "core.card.promise", "core.card.swiftness-1", "core.card.swiftness-2", "core.card.determination-1", "core.card.hero.crystal-joy", "core.card.stamina-1", "core.card.stamina-2", "core.card.rage-1", "core.card.hero.improvisation", "core.card.rage-2", "core.card.threaten"],
+      "skillIds": ["core.skill.goldyx.white-crystal-craft", "core.skill.goldyx.potion-making", "core.skill.goldyx.glittering-fortune", "core.skill.goldyx.motivation", "core.skill.goldyx.freezing-power", "core.skill.goldyx.green-crystal-craft", "core.skill.goldyx.flight", "core.skill.goldyx.red-crystal-craft", "core.skill.goldyx.universal-power"]
+    },
+    {
+      "id": "core.hero.norowas", "name": "Norowas", "source": "Ultimate Edition core hero", "sourceRef": "TTS bag index 37",
+      "armor": 2, "handLimit": 5, "commandSlots": 1, "assetAlias": "hero.norowas",
+      "basicDeck": ["core.card.rage-1", "core.card.threaten", "core.card.mana-draw", "core.card.swiftness-1", "core.card.march-1", "core.card.swiftness-2", "core.card.hero.rejuvenate", "core.card.crystallize", "core.card.determination-1", "core.card.hero.improvisation", "core.card.stamina-1", "core.card.concentration", "core.card.march-2", "core.card.stamina-2", "core.card.hero.noble-promise", "core.card.rage-2"],
+      "skillIds": ["core.skill.norowas.leadership", "core.skill.norowas.whisper-in-treetops", "core.skill.norowas.leaves-in-wind", "core.skill.norowas.inspiration", "core.skill.norowas.day-sharpshooting", "core.skill.norowas.motivation", "core.skill.norowas.bright-negotiation", "core.skill.norowas.forward-march", "core.skill.norowas.bonds-of-loyalty"]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "core.scenario.solo-conquest", "name": "Solo Conquest", "source": "Ultimate Edition scenario book page 19", "sourceRef": "b850ab main rules lines 2712-2766",
+      "roundLimit": 6, "countrysideTileCount": 7, "coreNonCityTileCount": 2, "coreCityTileCount": 2,
+      "cityLevelsByDifficulty": { "explorer": [3, 5], "standard": [5, 8], "veteran": [8, 11] },
+      "citiesRequired": 2, "finalTurnAfterObjective": true,
+      "objective": "在六轮内征服两座城市；第二座城市征服后还有最后一回合。"
+    },
+    {
+      "id": "core.scenario.single-city-development", "name": "单城征服（开发回归）", "source": "v0.2 regression scenario", "sourceRef": "v0.2-content-manifest.json",
+      "roundLimit": 4, "countrysideTileCount": 4, "coreNonCityTileCount": 1, "coreCityTileCount": 1,
+      "cityLevelsByDifficulty": { "explorer": [1], "standard": [2], "veteran": [3] },
+      "citiesRequired": 1, "finalTurnAfterObjective": false,
+      "objective": "在四轮内探索核心区域并征服一座城市。"
+    }
+  ],
+  "cards": [
+    { "id": "core.card.hero.instinct", "name": "本能", "color": "red", "kind": "basic", "source": "TTS 1a8e96", "basic": { "resource": "influence", "amount": 2 }, "strong": { "resource": "block", "amount": 5 }, "assetAlias": "card.instinct" },
+    { "id": "core.card.hero.cold-toughness", "name": "寒冷坚韧", "color": "blue", "kind": "basic", "source": "TTS 79bfbd", "basic": { "resource": "block", "amount": 2 }, "strong": { "resource": "block", "amount": 5, "element": "ice" }, "assetAlias": "card.cold-toughness" },
+    { "id": "core.card.hero.battle-versatility", "name": "战斗多才", "color": "red", "kind": "basic", "source": "TTS fb481b", "basic": { "resource": "attack", "amount": 2 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.battle-versatility" },
+    { "id": "core.card.hero.mana-pull", "name": "魔力牵引", "color": "white", "kind": "basic", "source": "TTS d6ba6f", "basic": { "resource": "influence", "amount": 2 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.mana-pull" },
+    { "id": "core.card.hero.improvisation", "name": "即兴发挥", "color": "red", "kind": "basic", "source": "TTS d6ba6f/450561/450566", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "attack", "amount": 5 }, "assetAlias": "card.improvisation" },
+    { "id": "core.card.hero.will-focus", "name": "意志专注", "color": "green", "kind": "basic", "source": "TTS acd316", "basic": { "resource": "move", "amount": 2 }, "strong": { "resource": "attack", "amount": 4 }, "assetAlias": "card.will-focus" },
+    { "id": "core.card.hero.crystal-joy", "name": "水晶之悦", "color": "blue", "kind": "basic", "source": "TTS 7ebe5e", "basic": { "resource": "block", "amount": 2 }, "strong": { "resource": "heal", "amount": 2 }, "assetAlias": "card.crystal-joy" },
+    { "id": "core.card.hero.rejuvenate", "name": "恢复活力", "color": "green", "kind": "basic", "source": "TTS c9c0f4", "basic": { "resource": "heal", "amount": 1 }, "strong": { "resource": "move", "amount": 4 }, "assetAlias": "card.rejuvenate" },
+    { "id": "core.card.hero.noble-promise", "name": "高贵承诺", "color": "white", "kind": "basic", "source": "TTS eaaaa5", "basic": { "resource": "influence", "amount": 2 }, "strong": { "resource": "influence", "amount": 5 }, "assetAlias": "card.noble-promise" },
+
+    { "id": "core.card.advanced.fire-bolt", "name": "火焰箭", "color": "red", "kind": "advanced", "source": "TTS 878d80", "basic": { "resource": "attack", "amount": 3, "attackKind": "ranged", "element": "fire" }, "strong": { "resource": "attack", "amount": 5, "attackKind": "siege", "element": "fire" }, "assetAlias": "card.advanced.fire-bolt" },
+    { "id": "core.card.advanced.swift-bolt", "name": "迅捷箭", "color": "white", "kind": "advanced", "source": "TTS 878d82", "basic": { "resource": "attack", "amount": 3, "attackKind": "ranged" }, "strong": { "resource": "attack", "amount": 5, "attackKind": "siege" }, "assetAlias": "card.advanced.swift-bolt" },
+    { "id": "core.card.advanced.ice-shield", "name": "冰盾", "color": "blue", "kind": "advanced", "source": "TTS 878d85", "basic": { "resource": "block", "amount": 3, "element": "ice" }, "strong": { "resource": "block", "amount": 6, "element": "ice" }, "assetAlias": "card.advanced.ice-shield" },
+    { "id": "core.card.advanced.agility", "name": "敏捷", "color": "white", "kind": "advanced", "source": "TTS 878d92", "basic": { "resource": "move", "amount": 3 }, "strong": { "resource": "move", "amount": 6 }, "assetAlias": "card.advanced.agility" },
+    { "id": "core.card.advanced.frost-bridge", "name": "冰霜之桥", "color": "blue", "kind": "advanced", "source": "TTS 878d87", "basic": { "resource": "move", "amount": 3 }, "strong": { "resource": "move", "amount": 5 }, "assetAlias": "card.advanced.frost-bridge" },
+    { "id": "core.card.advanced.song-of-wind", "name": "风之歌", "color": "white", "kind": "advanced", "source": "TTS 878d88", "basic": { "resource": "move", "amount": 3 }, "strong": { "resource": "move", "amount": 6 }, "assetAlias": "card.advanced.song-of-wind" },
+    { "id": "core.card.advanced.blood-ritual", "name": "血之仪式", "color": "red", "kind": "advanced", "source": "TTS 8eccb3", "basic": { "resource": "attack", "amount": 3 }, "strong": { "resource": "attack", "amount": 6 }, "assetAlias": "card.advanced.blood-ritual" },
+    { "id": "core.card.advanced.regeneration", "name": "再生", "color": "green", "kind": "advanced", "source": "TTS 878d91", "basic": { "resource": "heal", "amount": 2 }, "strong": { "resource": "heal", "amount": 3 }, "assetAlias": "card.advanced.regeneration" },
+
+    { "id": "core.card.spell.mana-bolt", "name": "魔力箭", "color": "blue", "kind": "spell", "source": "TTS 2eb8e3", "basic": { "resource": "attack", "amount": 5, "attackKind": "ranged" }, "strong": { "resource": "attack", "amount": 8, "attackKind": "siege" }, "assetAlias": "card.spell.mana-bolt" },
+    { "id": "core.card.spell.expose", "name": "暴露", "color": "white", "kind": "spell", "source": "TTS 2eb8e5", "basic": { "resource": "attack", "amount": 4 }, "strong": { "resource": "attack", "amount": 7 }, "assetAlias": "card.spell.expose" },
+    { "id": "core.card.spell.flame-wall", "name": "火焰墙", "color": "red", "kind": "spell", "source": "TTS 2eb8d8", "basic": { "resource": "block", "amount": 5, "element": "fire" }, "strong": { "resource": "attack", "amount": 7, "element": "fire" }, "assetAlias": "card.spell.flame-wall" },
+    { "id": "core.card.spell.space-bending", "name": "空间扭曲", "color": "blue", "kind": "spell", "source": "TTS 2eb8e2", "basic": { "resource": "move", "amount": 5 }, "strong": { "resource": "move", "amount": 8 }, "assetAlias": "card.spell.space-bending" },
+    { "id": "core.card.spell.whirlwind", "name": "旋风", "color": "white", "kind": "spell", "source": "TTS 2eb8e7", "basic": { "resource": "attack", "amount": 5 }, "strong": { "resource": "attack", "amount": 8 }, "assetAlias": "card.spell.whirlwind" },
+    { "id": "core.card.spell.snowstorm", "name": "暴风雪", "color": "blue", "kind": "spell", "source": "TTS 2eb8e4", "basic": { "resource": "attack", "amount": 5, "element": "ice" }, "strong": { "resource": "attack", "amount": 8, "element": "ice" }, "assetAlias": "card.spell.snowstorm" },
+    { "id": "core.card.spell.wings-of-wind", "name": "风之翼", "color": "white", "kind": "spell", "source": "TTS 2eb8e9", "basic": { "resource": "move", "amount": 5 }, "strong": { "resource": "move", "amount": 8 }, "assetAlias": "card.spell.wings-of-wind" },
+    { "id": "core.card.spell.burning-shield", "name": "燃烧护盾", "color": "red", "kind": "spell", "source": "TTS 2eb8d7", "basic": { "resource": "block", "amount": 5, "element": "fire" }, "strong": { "resource": "block", "amount": 8, "element": "fire" }, "assetAlias": "card.spell.burning-shield" },
+    { "id": "core.card.spell.underground-travel", "name": "地下行进", "color": "green", "kind": "spell", "source": "TTS 2eb8d2", "basic": { "resource": "move", "amount": 5 }, "strong": { "resource": "move", "amount": 8 }, "assetAlias": "card.spell.underground-travel" },
+
+    { "id": "core.card.artifact.diamond-ring", "name": "钻石戒指", "color": "white", "kind": "advanced", "source": "TTS 085e53", "basic": { "resource": "influence", "amount": 4 }, "strong": { "resource": "attack", "amount": 7 }, "assetAlias": "card.artifact.diamond-ring" },
+    { "id": "core.card.artifact.emerald-ring", "name": "祖母绿戒指", "color": "green", "kind": "advanced", "source": "TTS 085e54", "basic": { "resource": "move", "amount": 4 }, "strong": { "resource": "move", "amount": 7 }, "assetAlias": "card.artifact.emerald-ring" },
+    { "id": "core.card.artifact.sapphire-ring", "name": "蓝宝石戒指", "color": "blue", "kind": "advanced", "source": "TTS 085e52", "basic": { "resource": "block", "amount": 4 }, "strong": { "resource": "block", "amount": 7 }, "assetAlias": "card.artifact.sapphire-ring" },
+    { "id": "core.card.artifact.banner-courage", "name": "勇气旗帜", "color": "white", "kind": "advanced", "source": "TTS 6b4654", "basic": { "resource": "attack", "amount": 4 }, "strong": { "resource": "attack", "amount": 7 }, "assetAlias": "card.artifact.banner-courage" },
+    { "id": "core.card.artifact.banner-fear", "name": "恐惧旗帜", "color": "red", "kind": "advanced", "source": "TTS 7b9ec1", "basic": { "resource": "influence", "amount": 4 }, "strong": { "resource": "attack", "amount": 7 }, "assetAlias": "card.artifact.banner-fear" },
+    { "id": "core.card.artifact.banner-protection", "name": "防护旗帜", "color": "blue", "kind": "advanced", "source": "TTS df2eae", "basic": { "resource": "block", "amount": 4 }, "strong": { "resource": "block", "amount": 7 }, "assetAlias": "card.artifact.banner-protection" },
+    { "id": "core.card.artifact.gem-pouch", "name": "无尽宝石袋", "color": "green", "kind": "advanced", "source": "TTS 085e58", "basic": { "resource": "move", "amount": 4 }, "strong": { "resource": "influence", "amount": 7 }, "assetAlias": "card.artifact.gem-pouch" },
+    { "id": "core.card.artifact.amulet-darkness", "name": "黑暗护符", "color": "red", "kind": "advanced", "source": "TTS 085e62", "basic": { "resource": "attack", "amount": 4 }, "strong": { "resource": "attack", "amount": 7 }, "assetAlias": "card.artifact.amulet-darkness" },
+    { "id": "core.card.artifact.endless-gold", "name": "无尽金袋", "color": "white", "kind": "advanced", "source": "TTS 085e57", "basic": { "resource": "influence", "amount": 4 }, "strong": { "resource": "influence", "amount": 7 }, "assetAlias": "card.artifact.endless-gold" },
+    { "id": "core.card.artifact.golden-grail", "name": "黄金圣杯", "color": "green", "kind": "advanced", "source": "TTS 085e59", "basic": { "resource": "heal", "amount": 3 }, "strong": { "resource": "heal", "amount": 5 }, "assetAlias": "card.artifact.golden-grail" }
+  ],
+  "skills": [
+    { "id": "core.skill.arythea.power-of-pain", "name": "痛苦之力", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 33d341", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 2, "oncePerRound": true, "assetAlias": "skill.arythea.power-of-pain" },
+    { "id": "core.skill.arythea.motivation", "name": "激励", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 3d8336", "description": "每轮一次获得治疗。", "resource": "heal", "amount": 1, "oncePerRound": true, "assetAlias": "skill.arythea.motivation" },
+    { "id": "core.skill.arythea.dark-fire-magic", "name": "暗火魔法", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 0951b9", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 3, "oncePerRound": true, "assetAlias": "skill.arythea.dark-fire-magic" },
+    { "id": "core.skill.arythea.polarization", "name": "两极分化", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS fe29ca", "description": "每轮一次获得格挡。", "resource": "block", "amount": 2, "oncePerRound": true, "assetAlias": "skill.arythea.polarization" },
+    { "id": "core.skill.arythea.dark-paths", "name": "黑暗之路", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 4b997c", "description": "每轮一次获得移动。", "resource": "move", "amount": 2, "oncePerRound": true, "assetAlias": "skill.arythea.dark-paths" },
+    { "id": "core.skill.arythea.hot-swordsmanship", "name": "炙热剑术", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 1906f4", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 2, "oncePerRound": true, "assetAlias": "skill.arythea.hot-swordsmanship" },
+    { "id": "core.skill.arythea.invocation", "name": "魔咒", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 68568b", "description": "每轮一次获得影响。", "resource": "influence", "amount": 2, "oncePerRound": true, "assetAlias": "skill.arythea.invocation" },
+    { "id": "core.skill.arythea.burning-power", "name": "燃烧之力", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 2f2ad9", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 3, "oncePerRound": true, "assetAlias": "skill.arythea.burning-power" },
+    { "id": "core.skill.arythea.dark-negotiation", "name": "秘密谈判", "source": "Ultimate Edition Arythea skill", "sourceRef": "TTS 24855b", "description": "每轮一次获得影响。", "resource": "influence", "amount": 3, "oncePerRound": true, "assetAlias": "skill.arythea.dark-negotiation" },
+
+    { "id": "core.skill.goldyx.white-crystal-craft", "name": "白晶锻造", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 04319a", "description": "每轮一次获得格挡。", "resource": "block", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.white-crystal-craft" },
+    { "id": "core.skill.goldyx.potion-making", "name": "药剂制作", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 866002", "description": "每轮一次获得治疗。", "resource": "heal", "amount": 1, "oncePerRound": true, "assetAlias": "skill.goldyx.potion-making" },
+    { "id": "core.skill.goldyx.glittering-fortune", "name": "荧光灵运", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 8cea19", "description": "每轮一次获得影响。", "resource": "influence", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.glittering-fortune" },
+    { "id": "core.skill.goldyx.motivation", "name": "激励", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 171244", "description": "每轮一次获得移动。", "resource": "move", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.motivation" },
+    { "id": "core.skill.goldyx.freezing-power", "name": "冰封之力", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 91bf3d", "description": "每轮一次获得格挡。", "resource": "block", "amount": 3, "oncePerRound": true, "assetAlias": "skill.goldyx.freezing-power" },
+    { "id": "core.skill.goldyx.green-crystal-craft", "name": "绿晶锻造", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 0db37a", "description": "每轮一次获得移动。", "resource": "move", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.green-crystal-craft" },
+    { "id": "core.skill.goldyx.flight", "name": "飞行", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 4d5351", "description": "每轮一次获得移动。", "resource": "move", "amount": 3, "oncePerRound": true, "assetAlias": "skill.goldyx.flight" },
+    { "id": "core.skill.goldyx.red-crystal-craft", "name": "红晶锻造", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 9eb4c5", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.red-crystal-craft" },
+    { "id": "core.skill.goldyx.universal-power", "name": "通用力量", "source": "Ultimate Edition Goldyx skill", "sourceRef": "TTS 3a3f49", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 2, "oncePerRound": true, "assetAlias": "skill.goldyx.universal-power" },
+
+    { "id": "core.skill.norowas.leadership", "name": "领导", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 93c62e", "description": "每轮一次获得影响。", "resource": "influence", "amount": 3, "oncePerRound": true, "assetAlias": "skill.norowas.leadership" },
+    { "id": "core.skill.norowas.whisper-in-treetops", "name": "树梢风语", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS e45fdf", "description": "每轮一次获得移动。", "resource": "move", "amount": 2, "oncePerRound": true, "assetAlias": "skill.norowas.whisper-in-treetops" },
+    { "id": "core.skill.norowas.leaves-in-wind", "name": "风中残叶", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS b2dfce", "description": "每轮一次获得移动。", "resource": "move", "amount": 3, "oncePerRound": true, "assetAlias": "skill.norowas.leaves-in-wind" },
+    { "id": "core.skill.norowas.inspiration", "name": "重整旗鼓", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 3dc067", "description": "每轮一次获得治疗。", "resource": "heal", "amount": 1, "oncePerRound": true, "assetAlias": "skill.norowas.inspiration" },
+    { "id": "core.skill.norowas.day-sharpshooting", "name": "白昼狙击", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 046187", "description": "每轮一次获得攻击。", "resource": "attack", "amount": 2, "oncePerRound": true, "assetAlias": "skill.norowas.day-sharpshooting" },
+    { "id": "core.skill.norowas.motivation", "name": "激励", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 14399f", "description": "每轮一次获得移动。", "resource": "move", "amount": 2, "oncePerRound": true, "assetAlias": "skill.norowas.motivation" },
+    { "id": "core.skill.norowas.bright-negotiation", "name": "公开谈判", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 3f0f3b", "description": "每轮一次获得影响。", "resource": "influence", "amount": 3, "oncePerRound": true, "assetAlias": "skill.norowas.bright-negotiation" },
+    { "id": "core.skill.norowas.forward-march", "name": "全军行进", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS 257c0c", "description": "每轮一次获得移动。", "resource": "move", "amount": 3, "oncePerRound": true, "assetAlias": "skill.norowas.forward-march" },
+    { "id": "core.skill.norowas.bonds-of-loyalty", "name": "忠诚契约", "source": "Ultimate Edition Norowas skill", "sourceRef": "TTS f30dd4", "description": "每轮一次获得影响。", "resource": "influence", "amount": 2, "oncePerRound": true, "assetAlias": "skill.norowas.bonds-of-loyalty" }
+  ],
+  "units": [
+    { "id": "core.unit.regular.northern-monks", "name": "北方僧侣", "tier": "regular", "level": 2, "armor": 4, "influenceCost": 7, "ability": { "resource": "heal", "amount": 2 }, "siteKinds": ["monastery"], "resistances": [], "source": "TTS f17813", "assetAlias": "unit.northern-monks" },
+    { "id": "core.unit.elite.amotep-freezers", "name": "阿莫特普冰冻师", "tier": "elite", "level": 3, "armor": 5, "influenceCost": 9, "ability": { "resource": "block", "amount": 6, "element": "ice" }, "siteKinds": ["city"], "resistances": ["ice"], "source": "TTS f8ebe0", "assetAlias": "unit.amotep-freezers" },
+    { "id": "core.unit.elite.amotep-gunners", "name": "阿莫特普枪手", "tier": "elite", "level": 3, "armor": 5, "influenceCost": 9, "ability": { "resource": "attack", "amount": 6, "attackKind": "ranged" }, "siteKinds": ["city"], "resistances": [], "source": "TTS f60766", "assetAlias": "unit.amotep-gunners" },
+    { "id": "core.unit.elite.altem-mages", "name": "阿尔特姆法师", "tier": "elite", "level": 4, "armor": 6, "influenceCost": 11, "ability": { "resource": "attack", "amount": 8 }, "siteKinds": ["city"], "resistances": ["fire", "ice"], "source": "TTS bb1660", "assetAlias": "unit.altem-mages" }
+  ],
+  "tiles": [
+    { "id": "core.tile.conquest.c7", "name": "乡村七", "kind": "countryside", "terrains": ["forest", "hills", "plains", "desert", "wasteland", "plains", "forest"], "site": { "index": 4, "definitionId": "core.site.monastery" }, "enemies": [{ "index": 2, "pool": "green" }], "source": "base countryside tile inventory", "assetAlias": "tile.c7" },
+    { "id": "core.tile.conquest.core3", "name": "核心城市二", "kind": "core", "terrains": ["wasteland", "mountain", "desert", "hills", "plains", "forest", "plains"], "site": { "index": 0, "definitionId": "core.site.city" }, "enemies": [{ "index": 0, "pool": "city" }], "source": "base core city tile inventory", "assetAlias": "tile.core3" },
+    { "id": "core.tile.conquest.core4", "name": "核心荒野", "kind": "core", "terrains": ["desert", "wasteland", "mountain", "forest", "hills", "plains", "lake"], "site": { "index": 5, "definitionId": "core.site.keep" }, "enemies": [{ "index": 5, "pool": "gray" }, { "index": 2, "pool": "brown" }], "source": "base core non-city tile inventory", "assetAlias": "tile.core4" }
+  ],
+  "advancedDeck": ["core.card.advanced.fire-bolt", "core.card.advanced.ice-bolt", "core.card.advanced.swift-bolt", "core.card.advanced.crushing-bolt", "core.card.advanced.blood-rage", "core.card.advanced.ice-shield", "core.card.advanced.agility", "core.card.advanced.refreshing-walk", "core.card.advanced.intimidate", "core.card.advanced.frost-bridge", "core.card.advanced.song-of-wind", "core.card.advanced.pathfinding", "core.card.advanced.blood-ritual", "core.card.advanced.pure-magic", "core.card.advanced.heroic-tale", "core.card.advanced.regeneration"],
+  "spellDeck": ["core.card.spell.demolish", "core.card.spell.mana-bolt", "core.card.spell.expose", "core.card.spell.restoration", "core.card.spell.flame-wall", "core.card.spell.space-bending", "core.card.spell.whirlwind", "core.card.spell.meditation", "core.card.spell.fireball", "core.card.spell.snowstorm", "core.card.spell.wings-of-wind", "core.card.spell.tremor", "core.card.spell.burning-shield", "core.card.spell.chill", "core.card.spell.call-to-arms", "core.card.spell.underground-travel"],
+  "artifactDeck": ["core.card.artifact.diamond-ring", "core.card.artifact.emerald-ring", "core.card.artifact.ring", "core.card.artifact.sapphire-ring", "core.card.artifact.banner-courage", "core.card.artifact.banner-fear", "core.card.artifact.banner-protection", "core.card.artifact.banner", "core.card.artifact.book", "core.card.artifact.gem-pouch", "core.card.artifact.amulet-darkness", "core.card.artifact.amulet", "core.card.artifact.endless-gold", "core.card.artifact.sword", "core.card.artifact.horn", "core.card.artifact.golden-grail"],
+  "regularUnitDeck": ["core.unit.regular.crossbowmen", "core.unit.regular.crossbowmen", "core.unit.regular.foresters", "core.unit.regular.foresters", "core.unit.regular.guardsmen", "core.unit.regular.guardsmen", "core.unit.regular.golems", "core.unit.regular.golems", "core.unit.regular.herbalists", "core.unit.regular.herbalists", "core.unit.regular.illusionists", "core.unit.regular.illusionists", "core.unit.regular.swordsmen", "core.unit.regular.swordsmen", "core.unit.regular.northern-monks", "core.unit.regular.red-cape", "core.unit.regular.savages", "core.unit.regular.peasants", "core.unit.regular.peasants", "core.unit.regular.peasants"],
+  "eliteUnitDeck": ["core.unit.elite.amotep-freezers", "core.unit.elite.amotep-freezers", "core.unit.elite.fire-mages", "core.unit.elite.fire-mages", "core.unit.elite.ice-golems", "core.unit.elite.ice-golems", "core.unit.elite.fire-golems", "core.unit.elite.fire-golems", "core.unit.elite.ice-mages", "core.unit.elite.ice-mages", "core.unit.elite.amotep-gunners", "core.unit.elite.amotep-gunners", "core.unit.elite.altem-mages", "core.unit.elite.altem-mages", "core.unit.elite.altem-guards", "core.unit.elite.altem-guards", "core.unit.elite.altem-guards", "core.unit.elite.catapults", "core.unit.elite.catapults", "core.unit.elite.catapults"]
+}

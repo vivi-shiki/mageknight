@@ -1,0 +1,52 @@
+{
+  "name": "mageknight-web",
+  "private": true,
+  "version": "0.8.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:server": "tsx watch server/index.ts",
+    "server": "tsx server/index.ts",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.json --pretty false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:replay": "vitest run packages/engine/src/__tests__/tutorial-replay.test.ts packages/engine/src/__tests__/conquest-replay.test.ts",
+    "test:property": "vitest run packages/engine/src/__tests__/property.test.ts",
+    "test:solver": "vitest run packages/engine/src/__tests__/conquest-solver.test.ts",
+    "test:solver:acceptance": "vitest run --config vitest.solver.config.ts --maxWorkers=1",
+    "solver": "npm run test:solver:acceptance",
+    "test:acceptance": "npm run typecheck && npm run lint && npm test && npm run test:property && npm run test:replay && npm run test:solver:acceptance && npm run test:e2e && npm run build",
+    "test:e2e": "playwright test",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint": "^10.9.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.20.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.69.0",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
+  }
+}

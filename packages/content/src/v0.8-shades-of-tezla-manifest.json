@@ -1,0 +1,144 @@
+{
+  "id": "shades-of-tezla.official-v0.8",
+  "version": "0.8.0",
+  "requires": ["core.official-v0.3", "rules.official-v0.5"],
+  "conflicts": [],
+  "hero": {
+    "id": "tezla.hero.braevalar", "name": "Braevalar", "armor": 2, "handLimit": 5, "commandSlots": 1,
+    "basicDeck": [
+      "core.card.concentration", "core.card.mana-draw", "core.card.promise", "core.card.rage-1",
+      "core.card.hero.improvisation", "core.card.swiftness-1", "tezla.card.druidic-paths", "core.card.stamina-1",
+      "core.card.rage-2", "core.card.swiftness-2", "core.card.march-1", "tezla.card.one-with-the-land",
+      "core.card.determination-1", "core.card.threaten", "core.card.tranquility", "core.card.crystallize"
+    ],
+    "skillIds": [
+      "tezla.skill.lightning-storm", "tezla.skill.elemental-resistance", "tezla.skill.thunderstorm",
+      "tezla.skill.shapeshift", "tezla.skill.feral-allies", "tezla.skill.forked-lightning",
+      "tezla.skill.beguile", "tezla.skill.secret-ways", "tezla.skill.regenerate"
+    ],
+    "startingCrystals": ["blue", "blue", "green"], "assetAlias": "hero.braevalar",
+    "sourceRef": "Shades of Tezla rulebook p.1; TTS bag eefacc"
+  },
+  "cards": [
+    {
+      "id": "tezla.card.druidic-paths", "name": "德鲁伊之路", "color": "blue", "kind": "basic",
+      "basicText": "移动 2；本回合一个空间的移动费用 -1，最低为 2。",
+      "strongText": "移动 4；本回合选择一种地形，其移动费用 -1，最低为 2。",
+      "basicEffect": { "type": "sequence", "effects": [{ "resource": "move", "amount": 2 }, { "type": "special", "rule": "tezla-druidic-paths-basic" }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "blue", "amount": 1 }, { "resource": "move", "amount": 4 }, { "type": "choose-one", "labels": ["平原 -1", "森林 -1", "丘陵 -1", "沙漠 -1", "荒地 -1", "山脉 -1", "湖泊 -1"], "options": [
+        { "type": "terrain-cost", "terrains": ["plains"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["forest"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["hills"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["desert"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["wasteland"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["mountain"], "mode": "reduce", "amount": 1, "minimum": 2, "expires": "end-turn" },
+        { "type": "terrain-cost", "terrains": ["lake"], "mode": "reduce", "amount": 1, "minimum": 2, "allowLake": true, "expires": "end-turn" }
+      ] }] },
+      "sourceRef": "Braevalar basic action card: Druidic Paths", "implementation": "full", "assetAlias": "card.tezla.druidic-paths"
+    },
+    {
+      "id": "tezla.card.one-with-the-land", "name": "大地合一", "color": "green", "kind": "basic",
+      "basicText": "移动 2、治疗 1或格挡 2。",
+      "strongText": "移动 4、治疗 2，或获得等于所在空间未修正移动费用的格挡；白天为火焰格挡，夜晚为寒冰格挡。",
+      "basicEffect": { "type": "choose-one", "labels": ["移动 2", "治疗 1", "格挡 2"], "options": [{ "resource": "move", "amount": 2 }, { "resource": "heal", "amount": 1 }, { "resource": "block", "amount": 2 }] },
+      "strongEffect": { "type": "sequence", "effects": [{ "type": "spend-mana", "color": "green", "amount": 1 }, { "type": "choose-one", "labels": ["移动 4", "治疗 2", "地形格挡"], "options": [{ "resource": "move", "amount": 4 }, { "resource": "heal", "amount": 2 }, { "type": "special", "rule": "tezla-one-with-the-land" }] }] },
+      "sourceRef": "Braevalar basic action card: One with the Land", "implementation": "full", "assetAlias": "card.tezla.one-with-the-land"
+    }
+  ],
+  "skills": [
+    { "id": "tezla.skill.lightning-storm", "name": "雷暴", "description": "每轮一次：翻面，获得蓝或绿法力及蓝或红法力。", "ruleText": "选择两枚法力令牌：第一枚蓝/绿，第二枚蓝/红。", "effect": { "type": "special", "rule": "tezla-lightning-storm" }, "oncePerRound": true, "sourceRef": "Braevalar skill: Lightning Storm", "implementation": "full", "assetAlias": "skill.tezla.lightning-storm" },
+    { "id": "tezla.skill.elemental-resistance", "name": "元素抗性", "description": "每回合一次：下一次英雄受到单次火焰/寒冰攻击时减伤 2，其他攻击减伤 1。", "ruleText": "忽略下一次分配给英雄的单次元素攻击 2 点伤害，或其他攻击 1 点伤害。", "effect": { "type": "special", "rule": "tezla-elemental-resistance" }, "oncePerRound": false, "sourceRef": "Braevalar skill: Elemental Resistance", "implementation": "full", "assetAlias": "skill.tezla.elemental-resistance" },
+    { "id": "tezla.skill.thunderstorm", "name": "风暴", "description": "每轮一次：翻面，获得绿或蓝法力及绿或白法力。", "ruleText": "选择两枚法力令牌：第一枚绿/蓝，第二枚绿/白。", "effect": { "type": "special", "rule": "tezla-thunderstorm" }, "oncePerRound": true, "sourceRef": "Braevalar skill: Thunderstorm", "implementation": "full", "assetAlias": "skill.tezla.thunderstorm" },
+    { "id": "tezla.skill.shapeshift", "name": "变形", "description": "每回合一次：一张提供固定移动、攻击或格挡的基础行动牌，改为同值的另外一种资源。", "ruleText": "转换一张基础行动牌的固定移动/攻击/格挡，攻击和格挡保留元素。", "effect": { "type": "special", "rule": "tezla-shapeshift" }, "oncePerRound": false, "sourceRef": "Braevalar skill: Shapeshift", "implementation": "full", "assetAlias": "skill.tezla.shapeshift" },
+    { "id": "tezla.skill.feral-allies", "name": "野性盟友", "description": "探索费用始终 -1；每回合一次获得攻击 1或使一个敌人的一次攻击 -1。", "ruleText": "探索费用 -1；激活时选择攻击 1或目标攻击 -1。", "effect": { "type": "choose-one", "labels": ["攻击 1", "敌人攻击 -1"], "options": [{ "resource": "attack", "amount": 1 }, { "type": "modify-enemy", "modifier": "attack", "amount": -1, "expires": "end-combat" }] }, "oncePerRound": false, "sourceRef": "Braevalar skill: Feral Allies", "implementation": "full", "assetAlias": "skill.tezla.feral-allies" },
+    { "id": "tezla.skill.forked-lightning", "name": "叉形闪电", "description": "每回合一次：对至多三个不同敌人分别获得寒火远程攻击 1。", "ruleText": "获得寒火远程攻击 1；可指定至多三个敌人。", "effect": { "resource": "attack", "amount": 1, "attackKind": "ranged", "element": "cold-fire" }, "oncePerRound": false, "sourceRef": "Braevalar skill and FAQ: Forked Lightning", "implementation": "full", "assetAlias": "skill.tezla.forked-lightning" },
+    { "id": "tezla.skill.beguile", "name": "迷醉", "description": "每回合一次：通常影响 3；在工事地点为 2；在魔法林地为 4。", "ruleText": "根据当前位置获得影响 2、3或4。", "effect": { "type": "special", "rule": "tezla-beguile" }, "oncePerRound": false, "sourceRef": "Braevalar skill: Beguile", "implementation": "full", "assetAlias": "skill.tezla.beguile" },
+    { "id": "tezla.skill.secret-ways", "name": "隐秘之路", "description": "每回合一次移动 1；可用 5 移动进入山脉；支付蓝色法力后本回合可用 2 移动进入湖泊。", "ruleText": "移动 1，并允许山脉费用 5；可支付蓝色法力使湖泊费用为 2。", "effect": { "type": "special", "rule": "tezla-secret-ways" }, "oncePerRound": false, "sourceRef": "Braevalar skill: Secret Ways", "implementation": "full", "assetAlias": "skill.tezla.secret-ways" },
+    { "id": "tezla.skill.regenerate", "name": "再生", "description": "每回合一次：支付任意颜色法力并移除一张手牌伤牌；单人游戏中支付绿色法力时再抽一张。", "ruleText": "支付法力并移除一张手牌伤牌；支付绿色时抽一张。", "effect": { "type": "special", "rule": "tezla-regenerate", "target": "hand-card" }, "oncePerRound": false, "sourceRef": "Braevalar skill and solo interpretation: Regenerate", "implementation": "full", "assetAlias": "skill.tezla.regenerate" }
+  ],
+  "enemies": [
+    { "id": "tezla.enemy.elementalist.crystal-sprites", "name": "水晶精灵", "factionId": "elementalist", "pool": "green", "copies": 2, "armor": 1, "elusiveArmor": 2, "attack": [1, 1], "attackElement": "ice", "attackElements": ["ice", "ice"], "resistances": [], "abilities": ["multi-attack", "elusive", "defend"], "defend": 1, "fame": 1, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.crystal-sprites" },
+    { "id": "tezla.enemy.elementalist.elven-protectors", "name": "精灵守卫", "factionId": "elementalist", "pool": "green", "copies": 2, "armor": 4, "attack": [3], "attackElement": "physical", "resistances": ["fire"], "abilities": ["defend"], "defend": 2, "fame": 2, "sourceRef": "Shades of Tezla rulebook pp.2,16", "assetAlias": "enemy.tezla.elven-protectors" },
+    { "id": "tezla.enemy.elementalist.centaur-outriders", "name": "半人马斥候", "factionId": "elementalist", "pool": "green", "copies": 2, "armor": 5, "attack": [3], "attackElement": "physical", "resistances": [], "abilities": ["ambush"], "fame": 2, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.centaur-outriders" },
+    { "id": "tezla.enemy.elementalist.elemental-priestesses", "name": "元素女祭司", "factionId": "elementalist", "pool": "green", "copies": 1, "armor": 4, "attack": [3, 3], "attackElement": "fire", "attackElements": ["fire", "ice"], "resistances": ["fire", "ice"], "abilities": ["multi-attack"], "fame": 3, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.elemental-priestesses" },
+    { "id": "tezla.enemy.elementalist.cloud-griffons", "name": "云狮鹫", "factionId": "elementalist", "pool": "green", "copies": 1, "armor": 4, "elusiveArmor": 8, "attack": [4], "attackElement": "physical", "resistances": [], "abilities": ["elusive", "ambush"], "fame": 3, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.cloud-griffons" },
+    { "id": "tezla.enemy.elementalist.air-elemental", "name": "风元素", "factionId": "elementalist", "pool": "brown", "copies": 1, "armor": 4, "elusiveArmor": 8, "attack": [3], "attackElement": "ice", "resistances": ["ice"], "abilities": ["elusive", "ambush"], "fame": 4, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.air-elemental" },
+    { "id": "tezla.enemy.elementalist.earth-elemental", "name": "土元素", "factionId": "elementalist", "pool": "brown", "copies": 1, "armor": 5, "attack": [4], "attackElement": "physical", "resistances": ["physical"], "abilities": ["brutal"], "fame": 4, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.earth-elemental" },
+    { "id": "tezla.enemy.elementalist.fire-elemental", "name": "火元素", "factionId": "elementalist", "pool": "brown", "copies": 1, "armor": 6, "attack": [7], "attackElement": "fire", "resistances": ["fire"], "abilities": [], "fame": 4, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.fire-elemental" },
+    { "id": "tezla.enemy.elementalist.water-elemental", "name": "水元素", "factionId": "elementalist", "pool": "brown", "copies": 1, "armor": 7, "attack": [6], "attackElement": "ice", "resistances": ["ice"], "abilities": [], "fame": 4, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.water-elemental" },
+    { "id": "tezla.enemy.elementalist.savage-dragon", "name": "蛮荒巨龙", "factionId": "elementalist", "pool": "red", "copies": 2, "armor": 7, "attack": [5], "attackElement": "physical", "resistances": ["physical"], "abilities": ["brutal"], "fame": 6, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.savage-dragon" },
+    { "id": "tezla.enemy.elementalist.lightning-dragon", "name": "雷霆巨龙", "factionId": "elementalist", "pool": "red", "copies": 2, "armor": 7, "attack": [6], "attackElement": "ice", "resistances": ["ice"], "abilities": ["arcane-immunity"], "fame": 7, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.lightning-dragon" },
+    { "id": "tezla.enemy.dark-crusader.skeletal-warriors", "name": "骷髅战士", "factionId": "dark-crusader", "pool": "green", "copies": 2, "armor": 4, "attack": [3], "attackElement": "physical", "resistances": ["fire"], "abilities": ["pursuit"], "fame": 1, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.skeletal-warriors" },
+    { "id": "tezla.enemy.dark-crusader.zombie-horde", "name": "僵尸群", "factionId": "dark-crusader", "pool": "green", "copies": 2, "armor": 5, "attack": [1, 1, 1], "attackElement": "physical", "resistances": ["ice"], "abilities": ["multi-attack", "pursuit"], "fame": 2, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.zombie-horde" },
+    { "id": "tezla.enemy.dark-crusader.gibbering-ghouls", "name": "嘶嚎食尸鬼", "factionId": "dark-crusader", "pool": "green", "copies": 2, "armor": 4, "attack": [4], "attackElement": "physical", "resistances": [], "abilities": ["cumbersome", "pursuit"], "fame": 2, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.gibbering-ghouls" },
+    { "id": "tezla.enemy.dark-crusader.corrupted-priests", "name": "堕落祭司", "factionId": "dark-crusader", "pool": "green", "copies": 1, "armor": 5, "elusiveArmor": 7, "attack": [4], "attackElement": "ice", "resistances": [], "abilities": ["elusive", "defend"], "defend": 2, "fame": 3, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.corrupted-priests" },
+    { "id": "tezla.enemy.dark-crusader.shrouded-necromancers", "name": "隐匿死灵法师", "factionId": "dark-crusader", "pool": "green", "copies": 1, "armor": 5, "attack": [0], "attackElement": "physical", "resistances": [], "abilities": ["summon"], "fame": 3, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.shrouded-necromancers" },
+    { "id": "tezla.enemy.dark-crusader.pain-wraith", "name": "苦痛幽魂", "factionId": "dark-crusader", "pool": "brown", "copies": 1, "armor": 4, "elusiveArmor": 8, "attack": [4], "attackElement": "physical", "resistances": [], "abilities": ["elusive", "assassination"], "fame": 3, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.pain-wraith" },
+    { "id": "tezla.enemy.dark-crusader.mummy", "name": "木乃伊", "factionId": "dark-crusader", "pool": "brown", "copies": 1, "armor": 5, "attack": [4], "attackElement": "physical", "resistances": ["ice"], "abilities": ["poison"], "fame": 4, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.mummy" },
+    { "id": "tezla.enemy.dark-crusader.vampire", "name": "吸血鬼", "factionId": "dark-crusader", "pool": "brown", "copies": 1, "armor": 5, "elusiveArmor": 10, "attack": [5], "attackElement": "physical", "resistances": [], "abilities": ["elusive", "vampiric"], "fame": 4, "sourceRef": "Shades of Tezla rulebook pp.2,16", "assetAlias": "enemy.tezla.vampire" },
+    { "id": "tezla.enemy.dark-crusader.blood-demon", "name": "鲜血恶魔", "factionId": "dark-crusader", "pool": "brown", "copies": 1, "armor": 6, "attack": [6], "attackElement": "physical", "resistances": ["fire", "ice"], "abilities": ["brutal", "assassination"], "fame": 5, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.blood-demon" },
+    { "id": "tezla.enemy.dark-crusader.death-dragon", "name": "死亡巨龙", "factionId": "dark-crusader", "pool": "red", "copies": 2, "armor": 9, "attack": [7], "attackElement": "physical", "resistances": [], "abilities": ["assassination", "brutal"], "fame": 6, "sourceRef": "Shades of Tezla rulebook p.16", "assetAlias": "enemy.tezla.death-dragon" },
+    { "id": "tezla.enemy.dark-crusader.vampiric-dragon", "name": "吸血巨龙", "factionId": "dark-crusader", "pool": "red", "copies": 2, "armor": 8, "elusiveArmor": 16, "attack": [8], "attackElement": "physical", "resistances": [], "abilities": ["elusive", "vampiric"], "fame": 7, "sourceRef": "Shades of Tezla rulebook pp.2,16", "assetAlias": "enemy.tezla.vampiric-dragon" }
+  ],
+  "factionTokens": [
+    { "id": "tezla.token.elementalist.healing-herbs", "name": "治疗草药", "factionId": "elementalist", "copies": 2, "kind": "heal-or-remove-wound", "description": "治疗 1，或从弃牌堆移除一张伤牌。", "assetAlias": "token.tezla.healing-herbs", "sourceRef": "Faction token reference card" },
+    { "id": "tezla.token.elementalist.ice-shard", "name": "寒冰碎片", "factionId": "elementalist", "copies": 2, "kind": "add-element", "element": "ice", "description": "为一张行动牌产生的攻击或格挡增加寒冰元素。", "assetAlias": "token.tezla.ice-shard", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.elementalist.fire-gem", "name": "火焰宝石", "factionId": "elementalist", "copies": 2, "kind": "add-element", "element": "fire", "description": "为一张行动牌产生的攻击或格挡增加火焰元素。", "assetAlias": "token.tezla.fire-gem", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.elementalist.mystical-map", "name": "秘法地图", "factionId": "elementalist", "copies": 2, "kind": "remote-explore", "description": "移动阶段在三格距离内免费揭示一个新板块。", "assetAlias": "token.tezla.mystical-map", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.elementalist.cloak-of-shielding", "name": "护盾斗篷", "factionId": "elementalist", "copies": 2, "kind": "prevent-wound", "description": "本回合一次，在英雄将获得伤牌时忽略一张伤牌及其附带效果。", "assetAlias": "token.tezla.cloak-of-shielding", "sourceRef": "Faction token reference card" },
+    { "id": "tezla.token.elementalist.tome-of-relearning", "name": "重学之书", "factionId": "elementalist", "copies": 2, "kind": "swap-skill", "description": "非战斗时将一个已获得技能与公共技能池交换。", "assetAlias": "token.tezla.tome-of-relearning", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.dark-crusader.vial-of-toxin", "name": "毒液瓶", "factionId": "dark-crusader", "copies": 2, "kind": "physical-attack-bonus", "description": "一个物理攻击来源获得普通 +3、远程 +2或攻城 +1。", "assetAlias": "token.tezla.vial-of-toxin", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.dark-crusader.vampiric-chalice", "name": "吸血圣杯", "factionId": "dark-crusader", "copies": 2, "kind": "discard-combat-wounds", "description": "本回合战斗后，每击败一个敌人弃一张伤牌，最多四张。", "assetAlias": "token.tezla.vampiric-chalice", "sourceRef": "Faction token reference card and FAQ" },
+    { "id": "tezla.token.dark-crusader.ghostly-elixir", "name": "幽魂药剂", "factionId": "dark-crusader", "copies": 2, "kind": "make-ranged", "description": "将一张行动牌产生的一个攻击改为远程攻击。", "assetAlias": "token.tezla.ghostly-elixir", "sourceRef": "Faction token reference card" },
+    { "id": "tezla.token.dark-crusader.staff-of-concealment", "name": "隐匿法杖", "factionId": "dark-crusader", "copies": 2, "kind": "concealed-movement", "description": "移动 2；本回合移动不触发游荡敌人或伏击，追击敌人不移动也不攻击。", "assetAlias": "token.tezla.staff-of-concealment", "sourceRef": "Faction token reference card" },
+    { "id": "tezla.token.dark-crusader.amulet-of-reawakening", "name": "复苏护符", "factionId": "dark-crusader", "copies": 2, "kind": "recover-discard", "description": "随机将弃牌堆一张牌放回牌库底；下一次补牌手牌上限 +1。", "assetAlias": "token.tezla.amulet-of-reawakening", "sourceRef": "Faction token reference card" },
+    { "id": "tezla.token.dark-crusader.orb-of-twilight", "name": "暮光宝珠", "factionId": "dark-crusader", "copies": 2, "kind": "swap-source-mana", "description": "将法力源中的一颗黑色骰改为金色，或将一颗金色骰改为黑色。", "assetAlias": "token.tezla.orb-of-twilight", "sourceRef": "Faction token reference card" }
+  ],
+  "leaders": [
+    {
+      "id": "tezla.leader.elementalist", "name": "元素师大祭司", "factionId": "elementalist", "assetAlias": "leader.tezla.elementalist", "sourceRef": "Shades of Tezla rulebook p.5 and Elementalist leader dial",
+      "levels": [
+        { "level": 1, "armor": 3, "attacks": [2,2], "attackElements": ["fire","ice"], "abilities": ["arcane-immunity","multi-attack"], "resistances": ["fire"], "fame": 2, "guards": {"green":2} },
+        { "level": 2, "armor": 5, "attacks": [4], "attackElements": ["ice"], "abilities": ["arcane-immunity","cumbersome"], "resistances": ["ice"], "fame": 1, "guards": {"brown":1} },
+        { "level": 3, "armor": 4, "attacks": [4], "attackElements": ["physical"], "abilities": ["arcane-immunity","assassination"], "resistances": ["fire","ice"], "fame": 2, "guards": {"green":2,"brown":1} },
+        { "level": 4, "armor": 4, "attacks": [4,4], "attackElements": ["fire","fire"], "abilities": ["arcane-immunity","multi-attack"], "resistances": ["fire"], "fame": 2, "guards": {"green":2,"brown":1} },
+        { "level": 5, "armor": 3, "attacks": [3,3,3], "attackElements": ["fire","fire","ice"], "abilities": ["arcane-immunity","multi-attack"], "resistances": [], "fame": 2, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 6, "armor": 4, "attacks": [5,5], "attackElements": ["fire","fire"], "abilities": ["arcane-immunity","multi-attack"], "resistances": ["fire"], "fame": 2, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 7, "armor": 4, "attacks": [6], "attackElements": ["fire"], "abilities": ["arcane-immunity","assassination"], "resistances": ["fire","ice"], "fame": 3, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 8, "armor": 6, "attacks": [7], "attackElements": ["physical"], "abilities": ["arcane-immunity","swift"], "resistances": ["ice"], "fame": 2, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 9, "armor": 3, "attacks": [4,4,4], "attackElements": ["physical","fire","ice"], "abilities": ["arcane-immunity","multi-attack","summon"], "resistances": [], "fame": 2, "guards": {"green":2,"brown":2,"red":1} },
+        { "level": 10, "armor": 5, "attacks": [8], "attackElements": ["physical"], "abilities": ["arcane-immunity","unfortified"], "resistances": ["ice"], "fame": 3, "guards": {"green":2,"brown":2,"red":1} },
+        { "level": 11, "armor": 4, "attacks": [8], "attackElements": ["ice"], "abilities": ["arcane-immunity","assassination"], "resistances": ["fire","ice"], "fame": 2, "guards": {"green":2,"brown":2,"red":2} },
+        { "level": 12, "armor": 4, "attacks": [8,8], "attackElements": ["fire","fire"], "abilities": ["arcane-immunity","multi-attack"], "resistances": ["fire"], "fame": 3, "guards": {"green":3,"brown":2,"red":2} }
+      ]
+    },
+    {
+      "id": "tezla.leader.dark-crusader", "name": "死灵法师领主", "factionId": "dark-crusader", "assetAlias": "leader.tezla.dark-crusader", "sourceRef": "Shades of Tezla rulebook p.5 and Dark Crusader leader dial",
+      "levels": [
+        { "level": 1, "armor": 5, "attacks": [5], "attackElements": ["physical"], "abilities": ["arcane-immunity","assassination","vampiric"], "resistances": [], "fame": 1, "guards": {"green":1} },
+        { "level": 2, "armor": 4, "attacks": [6], "attackElements": ["physical"], "abilities": ["arcane-immunity","vampiric"], "resistances": [], "fame": 1, "guards": {"green":1} },
+        { "level": 3, "armor": 3, "attacks": [8], "attackElements": ["physical"], "abilities": ["arcane-immunity","vampiric"], "resistances": [], "fame": 1, "guards": {"green":1,"brown":1} },
+        { "level": 4, "armor": 4, "attacks": [4,4], "attackElements": ["physical","physical"], "abilities": ["arcane-immunity","multi-attack","poison"], "resistances": [], "fame": 1, "guards": {"green":1,"brown":1} },
+        { "level": 5, "armor": 4, "attacks": [9], "attackElements": ["physical"], "abilities": ["arcane-immunity","vampiric","poison"], "resistances": [], "fame": 2, "guards": {"green":1,"brown":1} },
+        { "level": 6, "armor": 4, "attacks": [9], "attackElements": ["physical"], "abilities": ["arcane-immunity","poison","brutal"], "resistances": [], "fame": 1, "guards": {"green":1,"brown":1,"red":1} },
+        { "level": 7, "armor": 4, "attacks": [7,7], "attackElements": ["physical","physical"], "abilities": ["arcane-immunity","multi-attack"], "resistances": [], "fame": 1, "guards": {"green":1,"brown":1,"red":1} },
+        { "level": 8, "armor": 4, "attacks": [8], "attackElements": ["physical"], "abilities": ["arcane-immunity","cumbersome","assassination"], "resistances": [], "fame": 2, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 9, "armor": 4, "attacks": [8], "attackElements": ["physical"], "abilities": ["arcane-immunity","unfortified","assassination"], "resistances": [], "fame": 2, "guards": {"green":2,"brown":1,"red":1} },
+        { "level": 10, "armor": 4, "attacks": [0], "attackElements": ["physical"], "abilities": ["arcane-immunity","summon"], "resistances": [], "fame": 1, "guards": {"green":2,"brown":2,"red":1} },
+        { "level": 11, "armor": 4, "attacks": [9], "attackElements": ["physical"], "abilities": ["arcane-immunity","poison"], "resistances": [], "fame": 2, "guards": {"green":2,"brown":2,"red":2} },
+        { "level": 12, "armor": 4, "attacks": [10], "attackElements": ["physical"], "abilities": ["arcane-immunity","assassination","unfortified"], "resistances": [], "fame": 3, "guards": {"green":3,"brown":2,"red":2} }
+      ]
+    }
+  ],
+  "overlays": [
+    { "id": "tezla.overlay.hidden-valley", "name": "隐秘山谷", "kind": "hidden-valley", "moveCost": 2, "nightRules": false, "assetAlias": "overlay.tezla.hidden-valley", "sourceRef": "Shades of Tezla rulebook p.4" },
+    { "id": "tezla.overlay.necropolis", "name": "亡灵城", "kind": "necropolis", "moveCost": 2, "nightRules": true, "assetAlias": "overlay.tezla.necropolis", "sourceRef": "Shades of Tezla rulebook p.5" },
+    { "id": "tezla.overlay.graveyard", "name": "墓地", "kind": "graveyard", "nightRules": true, "assetAlias": "overlay.tezla.graveyard", "sourceRef": "Shades of Tezla rulebook p.5" }
+  ],
+  "scenarios": [
+    { "id": "tezla.scenario.life-and-death", "name": "生与死", "roundLimit": 6, "countrysideTileCount": 6, "coreNonCityTileCount": 2, "coreCityTileCount": 3, "cityLevelsByDifficulty": { "explorer": [4,4], "standard": [6,6], "veteran": [8,8] }, "citiesRequired": 0, "finalTurnAfterObjective": true, "objective": "在六轮内击败元素师与黑暗十字军的两位 Tezla 化身。", "objectiveKind": "faction-leaders", "factionLeaderIds": ["tezla.leader.elementalist", "tezla.leader.dark-crusader"], "sourceRef": "Shades of Tezla rulebook pp.6-8" },
+    { "id": "tezla.scenario.realm-of-the-dead", "name": "亡者国度", "roundLimit": 4, "countrysideTileCount": 5, "coreNonCityTileCount": 1, "coreCityTileCount": 2, "cityLevelsByDifficulty": { "explorer": [3], "standard": [4], "veteran": [5] }, "citiesRequired": 0, "finalTurnAfterObjective": true, "objective": "封印两座墓地并击败死灵法师领主。", "objectiveKind": "necromancer", "factionLeaderIds": ["tezla.leader.dark-crusader"], "graveyardsRequired": 2, "sourceRef": "Shades of Tezla rulebook pp.8-10" },
+    { "id": "tezla.scenario.hidden-valley", "name": "隐秘山谷", "roundLimit": 4, "countrysideTileCount": 5, "coreNonCityTileCount": 1, "coreCityTileCount": 2, "cityLevelsByDifficulty": { "explorer": [3], "standard": [4], "veteran": [5] }, "citiesRequired": 0, "finalTurnAfterObjective": true, "objective": "找到隐秘山谷并击败元素师大祭司。", "objectiveKind": "faction-leaders", "factionLeaderIds": ["tezla.leader.elementalist"], "sourceRef": "Shades of Tezla rulebook pp.10-12" },
+    { "id": "tezla.scenario.lost-relic", "name": "失落圣物", "roundLimit": 2, "countrysideTileCount": 6, "coreNonCityTileCount": 1, "coreCityTileCount": 2, "cityLevelsByDifficulty": { "explorer": [3,3], "standard": [4,4], "veteran": [5,5] }, "citiesRequired": 0, "finalTurnAfterObjective": true, "objective": "从两座废墟城市中找回圣物碎片。", "objectiveKind": "relics", "factionLeaderIds": [], "relicsRequired": 2, "sourceRef": "Shades of Tezla rulebook pp.12-14" }
+  ]
+}
